@@ -1,187 +1,138 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Flow English School</title>
-<style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: system-ui, sans-serif; background: #f7f5f0; color: #122033; line-height: 1.6; }
-.container { max-width: 1120px; margin: 0 auto; padding: 0 1.25rem; }
-.section { padding: 4rem 0; }
-h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; color: #102040; }
-h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); margin-bottom: 1rem; color: #102040; }
-.btn { display: inline-block; padding: 0.85rem 1.6rem; border-radius: 999px; font-weight: 600; border: none; cursor: pointer; margin: 0.5rem 0.5rem 0.5rem 0; }
-.btn-primary { background: linear-gradient(135deg, #e0c07a, #c99b3b); color: #1b1b1b; }
-.btn-outline { background: transparent; border: 2px solid #e0c07a; color: #102040; }
-.hero { padding-top: 5rem; background: #f7f5f0; }
-.benefits { background: #fff; }
-.benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.25rem; margin-top: 2rem; }
-.benefit-item { background: #f0ebe0; padding: 1.3rem; border-radius: 12px; }
-.testimonials { background: #fff; }
-.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-.testimonial-card { background: #fff; padding: 1.4rem; border-radius: 12px; box-shadow: 0 14px 30px rgba(0,0,0,0.06); border-left: 4px solid #e0c07a; }
-.pricing { background: #f7f5f0; }
-.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-.pricing-card { background: #fff; padding: 1.6rem; border-radius: 18px; box-shadow: 0 14px 30px rgba(0,0,0,0.06); }
-.faq { background: #fff; }
-.faq details { background: #f0ebe0; padding: 1rem; margin-bottom: 0.75rem; border-radius: 12px; cursor: pointer; }
-.contact { background: #f7f5f0; }
-.final-cta { background: #102040; color: #f7f5f0; text-align: center; padding: 4rem 0; }
-.hero-ctas { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
-@media (min-width: 768px) {
-.benefits-grid { grid-template-columns: repeat(3, 1fr); }
-.testimonials-grid { grid-template-columns: repeat(3, 1fr); }
-.pricing-grid { grid-template-columns: repeat(3, 1fr); }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Flow English School | Inglês Vivo e Conversação Real</title>
+  <meta name="description" content="The Flow English School: escola de inglês focada em conversação real, fluência prática e aprendizado natural para jovens e adultos brasileiros. Agende sua aula experimental.">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: linear-gradient(135deg, #f7f5f0 0%, #fefdfb 100%); color: #1a1a1a; line-height: 1.7; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    .section { padding: 80px 0; }
+    h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; line-height: 1.1; margin-bottom: 20px; color: #0a2540; }
+    h2 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700; margin-bottom: 15px; color: #0a2540; }
+    h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 10px; color: #0a2540; }
+    p { font-size: 1rem; margin-bottom: 15px; color: #333; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; border-radius: 50px; font-weight: 600; border: none; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; font-size: 0.95rem; }
+    .btn-primary { background: linear-gradient(135deg, #d4a574 0%, #b8860b 100%); color: #fff; box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3); }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(212, 165, 116, 0.4); }
+    .btn-outline { background: transparent; border: 2px solid #d4a574; color: #0a2540; }
+    .btn-outline:hover { background: rgba(212, 165, 116, 0.1); transform: translateY(-3px); }
+    header { position: sticky; top: 0; z-index: 1000; background: rgba(255, 253, 251, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(212, 165, 116, 0.2); padding: 15px 0; }
+    .header-content { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 1.3rem; font-weight: 800; color: #0a2540; letter-spacing: 1px; }
+    nav { display: flex; gap: 40px; align-items: center; }
+    nav a { text-decoration: none; color: #0a2540; font-weight: 500; transition: color 0.3s; }
+    nav a:hover { color: #d4a574; }
+    .hero { padding: 100px 0 80px; background: linear-gradient(135deg, rgba(10, 37, 64, 0.05) 0%, rgba(212, 165, 116, 0.05) 100%); }
+    .hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .hero-text h1 { margin-bottom: 20px; background: linear-gradient(135deg, #0a2540 0%, #1a4580 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-subtitle { font-size: 1.15rem; color: #555; margin-bottom: 30px; line-height: 1.8; }
+    .hero-buttons { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; }
+    .hero-image { background: linear-gradient(135deg, #0a2540 0%, #1a4580 100%); padding: 40px; border-radius: 20px; color: #fff; text-align: center; min-height: 400px; display: flex; align-items: center; justify-content: center; font-size: 3rem; box-shadow: 0 20px 60px rgba(10, 37, 64, 0.15); }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+    .card { background: #fff; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(212, 165, 116, 0.1); }
+    .card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(212, 165, 116, 0.2); border-color: #d4a574; }
+    .card h3 { margin-bottom: 15px; color: #0a2540; }
+    .card p { color: #666; margin-bottom: 0; }
+    .benefits { background: linear-gradient(135deg, #fff 0%, rgba(212, 165, 116, 0.05) 100%); }
+    .benefit-item { display: flex; gap: 20px; margin-bottom: 30px; }
+    .benefit-icon { flex-shrink: 0; width: 50px; height: 50px; background: linear-gradient(135deg, #d4a574 0%, #b8860b 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+    .testimonial-card { background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); border-left: 4px solid #d4a574; }
+    .testimonial-card blockquote { font-size: 1rem; font-style: italic; margin-bottom: 15px; color: #333; }
+    .testimonial-card figcaption { font-weight: 600; color: #0a2540; }
+    .pricing-card { background: #fff; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); border: 2px solid transparent; transition: all 0.3s; display: flex; flex-direction: column; }
+    .pricing-card.featured { border-color: #d4a574; transform: scale(1.05); box-shadow: 0 20px 50px rgba(212, 165, 116, 0.3); }
+    .pricing-card h3 { margin-bottom: 10px; }
+    .pricing-tagline { color: #d4a574; font-weight: 600; margin-bottom: 20px; font-size: 0.9rem; }
+    .pricing-card ul { list-style: none; margin-bottom: 30px; flex-grow: 1; }
+    .pricing-card li { padding: 8px 0; color: #666; position: relative; padding-left: 25px; }
+    .pricing-card li:before { content: "✓"; position: absolute; left: 0; color: #d4a574; font-weight: bold; }
+    .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: center; }
+    .about-text h2 { margin-bottom: 20px; }
+    .about-sidebar { background: #f0ebe0; padding: 30px; border-radius: 15px; }
+    .faq-item { background: #fff; padding: 25px; margin-bottom: 15px; border-radius: 12px; cursor: pointer; border: 1px solid rgba(212, 165, 116, 0.2); transition: all 0.3s; }
+    .faq-item:hover { border-color: #d4a574; box-shadow: 0 5px 15px rgba(212, 165, 116, 0.1); }
+    .faq-item summary { font-weight: 600; color: #0a2540; cursor: pointer; list-style: none; }
+    .faq-item summary:before { content: "+ "; color: #d4a574; font-weight: bold; margin-right: 10px; }
+    .faq-item[open] summary:before { content: "- "; }
+    .faq-item p { margin-top: 15px; color: #666; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .contact-form { display: grid; gap: 15px; }
+    .form-group { display: grid; gap: 8px; }
+    .form-group label { font-weight: 600; color: #0a2540; }
+    .form-group input, .form-group textarea { padding: 12px 16px; border: 2px solid #e0e0e0; border-radius: 8px; font-family: inherit; font-size: 1rem; transition: all 0.3s; }
+    .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #d4a574; box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1); }
+    .cta-final { background: linear-gradient(135deg, #0a2540 0%, #1a4580 100%); color: #fff; text-align: center; padding: 100px 0; }
+    .cta-final h2 { color: #fff; margin-bottom: 20px; }
+    .cta-final p { color: #e0d5c7; font-size: 1.1rem; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .cta-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+    footer { background: #0a1f35; color: #b0b0b0; padding: 40px 0 20px; text-align: center; font-size: 0.9rem; }
+    @media (max-width: 768px) { .hero-content { grid-template-columns: 1fr; } .hero-image { min-height: 250px; } .about-grid { grid-template-columns: 1fr; } .contact-grid { grid-template-columns: 1fr; } .hero-buttons { flex-direction: column; } .btn { width: 100%; } .pricing-card.featured { transform: scale(1); } .section { padding: 50px 0; } .grid-3 { gap: 20px; } nav { display: none; } }
+  </style>
 </head>
 <body>
 
-<header style="padding: 1rem 0; border-bottom: 1px solid #e0e0e0;">
-<div class="container"><h3>🌊 The Flow English School</h3></div>
+<header>
+  <div class="container">
+    <div class="header-content">
+      <div class="logo">🌊 The Flow English</div>
+      <nav>
+        <a href="#home">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#planos">Planos</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <a href="#contato" class="btn btn-primary">Agendar aula</a>
+    </div>
+  </div>
 </header>
 
 <main>
 
-<section id="home" class="section hero">
-<div class="container">
-<h1>Fale ingl\u00e9s com confian\u00e7a, n\u00e3o com tradu\u00e7\u00e3o.</h1>
-<p>Ingl\u00e9s vivo, conversa\u00e7\u00e3o desde a primeira aula e foco total na sua flu\u00eancia.</p>
-<div class="hero-ctas">
-<a href="#contato" class="btn btn-primary">Agendar aula experimental</a>
-<a href="https://wa.me/55" class="btn btn-outline">Falar no WhatsApp</a>
-</div>
-</div>
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Fale inglês com confiança, não com tradução</h1>
+        <p class="hero-subtitle">Inglês vivo, conversação desde a primeira aula e foco total na sua fluência para trabalho, viagens e vida real — mesmo que hoje você trave até no "How are you?".</p>
+        <div class="hero-buttons">
+          <a href="#contato" class="btn btn-primary">Agendar aula experimental</a>
+          <a href="https://wa.me/55" class="btn btn-outline" target="_blank">Falar no WhatsApp</a>
+        </div>
+        <p style="font-size: 0.85rem; color: #888;">Sem compromisso, sem cartão. Só você sentir na prática.</p>
+      </div>
+      <div class="hero-image">🎓</div>
+    </div>
+  </div>
 </section>
 
-<section class="section benefits">
-<div class="container">
-<h2>Ingl\u00e9s que voc\u00ea usa, n\u00e3o s\u00f3 estuda</h2>
-<div class="benefits-grid">
-<article class="benefit-item">
-<h3>Conversa\u00e7\u00e3o desde a primeira aula</h3>
-<p>Voc\u00ea fala, ouve e interage de verdade, sem ficar preso a regras.</p>
-</article>
-<article class="benefit-item">
-<h3>Linguagem real do dia a dia</h3>
-<p>S\u00e9ries, m\u00fasicas, trabalho, viagens, entrevistas e reuni\u00f5es.</p>
-</article>
-<article class="benefit-item">
-<h3>M\u00e9todo fluido e cont\u00ednuo</h3>
-<p>Cada aula conecta com a seguinte, sem recomen\u00e7ar do zero.</p>
-</article>
-</div>
-</div>
+<!-- BENEFÍCIOS -->
+<section class="benefits">
+  <div class="container">
+    <h2>Inglês que você usa, não só estuda</h2>
+    <p style="max-width: 600px; margin-bottom: 40px; color: #555;">A The Flow English School foi pensada para destravar sua fala e transformar o inglês em uma ferramenta prática do seu dia a dia.</p>
+    <div class="grid-3">
+      <div class="card">
+        <h3>✨ Conversação desde a primeira aula</h3>
+        <p>Você fala, ouve e interage de verdade, sem ficar preso a regras que não saem do papel.</p>
+      </div>
+      <div class="card">
+        <h3>🌍 Linguagem real do dia a dia</h3>
+        <p>Séries, músicas, trabalho, viagens, entrevistas e reuniões — o inglês que o mundo realmente usa.</p>
+      </div>
+      <div class="card">
+        <h3>🔄 Método fluido e contínuo</h3>
+        <p>Cada aula conecta com a seguinte, para você não ter a sensação de recomeçar do zero toda vez.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="depoimentos" class="section testimonials">
-<div class="container">
-<h2>Hist\u00f3rias reais de alunos</h2>
-<div class="testimonials-grid">
-<figure class="testimonial-card">
-<blockquote>\"Em 3 meses no Flow, tive minha primeira reuni\u00e3o inteira em ingl\u00e9s sem travar.\"</blockquote>
-<figcaption>- Ana Paula, 29, Analista de Marketing</figcaption>
-</figure>
-<figure class="testimonial-card">
-<blockquote>\"Aprendi que o importante \u00e9 comunicar. Hoje participo de calls com confian\u00e7a.\"</blockquote>
-<figcaption>- Jo\u00e3o Victor, 32, Engenheiro</figcaption>
-</figure>
-<figure class="testimonial-card">
-<blockquote>\"Consegui viajar e conversar com nativos. Primeira vez me senti fluente.\"</blockquote>
-<figcaption>- Camila, 24, Estudante</figcaption>
-</figure>
-</div>
-</div>
-</section>
-
-<section id="planos" class="section pricing">
-<div class="container">
-<h2>Escolha o plano que combina com você</h2>
-<div class="pricing-grid">
-<article class="pricing-card">
-<h3>Flow Start</h3>
-<p><strong>Para iniciantes</strong></p>
-<ul style="list-style: disc; padding-left: 1.5rem;">
-<li>Aulas semanais focadas em frases de sobreviv\u00eancia</li>
-<li>Material simples e visual</li>
-<li>Suporte entre as aulas</li>
-</ul>
-<a href="https://wa.me/55" class="btn btn-outline" style="margin-top: 1rem; display: inline-block;">Saiba mais</a>
-</article>
-
-<article class="pricing-card" style="border: 2px solid #e0c07a;">
-<h3>Flow Conversation ⭐</h3>
-<p><strong>Para quem j\u00e1 estudou</strong></p>
-<ul style="list-style: disc; padding-left: 1.5rem;">
-<li>Conversa\u00e7\u00e3o com temas reais</li>
-<li>Corre\u00e7\u00e3o de pronúncia</li>
-<li>Atividades para treinar</li>
-</ul>
-<a href="#contato" class="btn btn-primary" style="margin-top: 1rem; display: inline-block;">Quero fluência</a>
-</article>
-
-<article class="pricing-card">
-<h3>Flow Pro</h3>
-<p><strong>Para carreira</strong></p>
-<ul style="list-style: disc; padding-left: 1.5rem;">
-<li>Aulas personalizadas</li>
-<li>Simula\u00e7\u00e3o de entrevistas</li>
-<li>Feedback detalhado</li>
-</ul>
-<a href="https://wa.me/55" class="btn btn-outline" style="margin-top: 1rem; display: inline-block;">Saiba mais</a>
-</article>
-</div>
-</div>
-</section>
-
-<section id="faq" class="section faq">
-<div class="container">
-<h2>D\u00favidas frequentes</h2>
-<details>
-<summary><strong>N\u00e3o tenho tempo. Consigo acompanhar?</strong></summary>
-<p>As aulas s\u00e3o pensadas para caber na rotina de quem trabalha e estuda.</p>
-</details>
-<details>
-<summary><strong>Sou t\u00edmido(a) de falar</strong></summary>
-<p>O Flow foi criado para quem tem medo de errar. Ambiente seguro, sem julgamento.</p>
-</details>
-<details>
-<summary><strong>J\u00e1 fiz outros cursos</strong></summary>
-<p>Aqui voc\u00ea fala desde a primeira aula, com feedback na hora e situa\u00e7\u00f5es reais.</p>
-</details>
-</div>
-</section>
-
-<section id="contato" class="section contact">
-<div class="container">
-<h2>Fale com a equipe Flow</h2>
-<p>Quer saber qual plano \u00e9 ideal? Envie uma mensagem.</p>
-<form style="margin-top: 1.5rem; max-width: 500px;">
-<input type="text" placeholder="Seu nome" required style="width: 100%; padding: 0.65rem; margin-bottom: 0.75rem; border: 1px solid #d6d0c3; border-radius: 8px;">
-<input type="email" placeholder="Seu e-mail" required style="width: 100%; padding: 0.65rem; margin-bottom: 0.75rem; border: 1px solid #d6d0c3; border-radius: 8px;">
-<input type="tel" placeholder="Seu WhatsApp" required style="width: 100%; padding: 0.65rem; margin-bottom: 0.75rem; border: 1px solid #d6d0c3; border-radius: 8px;">
-<button type="submit" class="btn btn-primary">Enviar mensagem</button>
-</form>
-</div>
-</section>
-
-<section class="section final-cta">
-<div class="container">
-<h2>Voc\u00ea n\u00e3o nasceu para ficar travado em outra l\u00edngua</h2>
-<p style="margin: 1rem 0 2rem; font-size: 1.1rem;">Comece hoje. Get in the flow. Speak like a pro.</p>
-<a href="#contato" class="btn btn-primary">Agendar aula</a>
-<a href="https://wa.me/55" class="btn btn-outline" style="border-color: #fff; color: #fff;">WhatsApp</a>
-</div>
-</section>
-
-</main>
-
-<footer style="background: #0c1624; color: #d7d9df; padding: 2rem 0; text-align: center;">
-<div class="container">
-<p>© 2026 The Flow English School. Todos os direitos reservados.</p>
-</div>
-</footer>
-
-</body>
-</html>
+<!-- SOBRE -->
+<section id="sobre" class="section" style="background: #
