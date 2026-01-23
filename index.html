@@ -1,3 +1,8 @@
+A melhor área para essa biografia é logo depois da seção “Por que escolher The Flow?”, ainda na parte “Sobre”, porque mantém o contexto e aprofunda a história da escola antes de falar de preços e planos. [github](https://github.com/suportebyenglish-lab/the-flow-english-school/blob/main/index.html)
+
+Abaixo está o seu código com uma nova seção de biografia logo após o bloco `</section>` de `id="sobre"`. Basta substituir o arquivo atual por este:
+
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -52,6 +57,13 @@
     .form-group{margin:20px 0}
     .form-group input,.form-group textarea{width:100%;padding:12px 15px;border:none;border-radius:8px;font-family:inherit;font-size:1rem}
     .footer{background:#1a1a1a;color:white;padding:30px 0;text-align:center}
+    /* BIOGRAFIA */
+    .bio-section{background:#07213d;color:white;padding:80px 0}
+    .bio-wrapper{display:grid;grid-template-columns:320px 1fr;gap:40px;align-items:center}
+    .bio-photo{border-radius:20px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.4)}
+    .bio-photo img{width:100%;display:block}
+    .bio-text h3{font-size:2rem;margin-bottom:20px}
+    .bio-text p{margin-bottom:15px;line-height:1.9;color:#f1f1f1}
     @media(max-width:768px){
       .hero h1{font-size:2rem}
       nav{display:none}
@@ -59,6 +71,7 @@
       .contact-wrapper{grid-template-columns:1fr}
       .logo img{height:60px}
       .logo span{font-size:1.4rem}
+      .bio-wrapper{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -116,6 +129,25 @@
           <div class="card-icon">💬</div>
           <h3>Fluência Prática</h3>
           <p>Fale com segurança e naturalidade em diferentes contextos, sem travar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIOGRAFIA THE FLOW -->
+  <section class="bio-section" id="bio">
+    <div class="container">
+      <div class="bio-wrapper">
+        <div class="bio-photo">
+          <!-- use a mesma imagem da arte enviada, salve como founder-theflow.jpg na pasta do site -->
+          <img src="founder-theflow.jpg" alt="Fundadora da The Flow English School">
+        </div>
+        <div class="bio-text">
+          <h3>Como nasceu a The Flow</h3>
+          <p>A The Flow English School nasceu da jornada de uma brasileira que passou 9 anos morando nos Estados Unidos, onde o inglês deixou de ser apenas uma matéria e se tornou parte da sua identidade.</p>
+          <p>No dia a dia, nas conversas, nos desafios e conexões, ela descobriu um inglês vivo, que comunica sentimentos, ideias e sonhos – bem diferente do ensino engessado que via nas salas de aula tradicionais.</p>
+          <p>Ao voltar para o Brasil, começou a dar aulas e percebeu que o problema não era a capacidade dos alunos, mas o método: pessoas diferentes estavam sendo ensinadas como se fossem todas iguais.</p>
+          <p>Inconformada com isso, decidiu criar um espaço onde o erro é parte do processo, a prática vem antes da perfeição e a confiança é construída conversa após conversa. Assim nasceu a The Flow: uma escola em que o inglês flui de forma leve, real e natural, conectando histórias, propósitos e novas oportunidades.</p>
         </div>
       </div>
     </div>
@@ -262,3 +294,4 @@
   </footer>
 </body>
 </html>
+```
