@@ -11,7 +11,8 @@
     header{background:linear-gradient(135deg,#003366 0%,#C60C30 100%);color:white;padding:1rem 0;position:sticky;top:0;z-index:1000;box-shadow:0 4px 20px rgba(0,51,102,0.3)}
     .container{max-width:1200px;margin:0 auto;padding:0 20px}
     .header-content{display:flex;justify-content:space-between;align-items:center}
-    .logo{font-size:1.8rem;font-weight:bold;letter-spacing:2px} 
+    .logo{font-size:1.8rem;font-weight:bold;letter-spacing:2px;display:flex;align-items:center;gap:15px}
+    .logo img{height:80px;width:auto}
     nav{display:flex;gap:2rem}
     a{color:white;text-decoration:none;font-weight:500;transition:0.3s}
     a:hover{color:#ffd700}
@@ -56,6 +57,8 @@
       nav{display:none}
       .pricing-card.featured{transform:scale(1)}
       .contact-wrapper{grid-template-columns:1fr}
+      .logo img{height:60px}
+      .logo span{font-size:1.4rem}
     }
   </style>
 </head>
@@ -63,7 +66,10 @@
   <header>
     <div class="container">
       <div class="header-content">
-        <div class="logo">The FLOW</div>
+        <div class="logo">
+          <img src="logo.png" alt="The Flow English School" style="height: 80px;">
+          <span>The FLOW</span>
+        </div>
         <nav>
           <a href="#home">Início</a>
           <a href="#sobre">Sobre</a>
@@ -173,6 +179,7 @@
             <li>Coaching personalizado</li>
           </ul>
           <a href="https://wa.me/5524981284100" class="btn-primary">Escolher Plano</a>
+        </div>
       </div>
     </div>
   </section>
