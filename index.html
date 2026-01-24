@@ -59,6 +59,7 @@
     .bio-photo img{width:100%;display:block}
     .bio-text h3{font-size:2rem;margin-bottom:20px}
     .bio-text p{margin-bottom:15px;line-height:1.9;color:#f1f1f1}
+
     @media(max-width:768px){
       .hero h1{font-size:2rem}
       nav{display:none}
@@ -68,310 +69,162 @@
       .logo span{font-size:1.4rem}
       .bio-wrapper{grid-template-columns:1fr}
     }
+
+    /* CHATBOX MICHELE */
+    .chat-launcher {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #25D366;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 2000;
+    }
+
+    .chat-launcher img {
+      width: 32px;
+      height: 32px;
+    }
+
+    .chatbox {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 320px;
+      max-height: 420px;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 2000;
+      font-family: inherit;
+    }
+
+    .chatbox-header {
+      background: linear-gradient(135deg,#003366 0%,#C60C30 100%);
+      color: #fff;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .chatbox-header-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .chatbox-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    .chatbox-header-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .chatbox-header-subtitle {
+      font-size: 0.75rem;
+      opacity: 0.9;
+    }
+
+    .chatbox-close {
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    .chatbox-body {
+      padding: 12px;
+      background: #f4f6fb;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      overflow-y: auto;
+    }
+
+    .chat-message {
+      max-width: 85%;
+      padding: 8px 10px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+
+    .chat-message.michele {
+      align-self: flex-start;
+      background: #ffffff;
+      border-top-left-radius: 2px;
+    }
+
+    .chat-message.user {
+      align-self: flex-end;
+      background: #daf8cb;
+      border-top-right-radius: 2px;
+    }
+
+    .chatbox-footer {
+      padding: 8px;
+      border-top: 1px solid #e0e4f0;
+      background: #ffffff;
+      display: flex;
+      gap: 6px;
+    }
+
+    .chatbox-footer input {
+      flex: 1;
+      border-radius: 999px;
+      border: 1px solid #ccd1e4;
+      padding: 6px 10px;
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    .chatbox-footer button {
+      border-radius: 999px;
+      border: none;
+      background: #003366;
+      color: #fff;
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+
+    .quick-questions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .quick-question {
+      background: #e6ebff;
+      color: #003366;
+      border-radius: 999px;
+      padding: 4px 8px;
+      font-size: 0.75rem;
+      cursor: pointer;
+    }
   </style>
 </head>
-  /* CHATBOX MICHELE */
-.chat-launcher {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: #25D366;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 2000;
-}
-
-.chat-launcher img {
-  width: 32px;
-  height: 32px;
-}
-
-.chatbox {
-  position: fixed;
-  bottom: 90px;
-  right: 20px;
-  width: 320px;
-  max-height: 420px;
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-  display: none;
-  flex-direction: column;
-  overflow: hidden;
-  z-index: 2000;
-  font-family: inherit;
-}
-
-.chatbox-header {
-  background: linear-gradient(135deg,#003366 0%,#C60C30 100%);
-  color: #fff;
-  padding: 12px 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.chatbox-header-info {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.chatbox-avatar {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: #25D366;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-}
-
-.chatbox-header-title {
-  font-size: 0.95rem;
-  font-weight: 600;
-}
-
-.chatbox-header-subtitle {
-  font-size: 0.75rem;
-  opacity: 0.9;
-}
-
-.chatbox-close {
-  background: transparent;
-  border: none;
-  color: #fff;
-  font-size: 1.1rem;
-  cursor: pointer;
-}
-
-.chatbox-body {
-  padding: 12px;
-  background: #f4f6fb;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  overflow-y: auto;
-}
-
-.chat-message {
-  max-width: 85%;
-  padding: 8px 10px;
-  border-radius: 10px;
-  font-size: 0.85rem;
-  line-height: 1.4;
-}
-
-.chat-message.michele {
-  align-self: flex-start;
-  background: #ffffff;
-  border-top-left-radius: 2px;
-}
-
-.chat-message.user {
-  align-self: flex-end;
-  background: #daf8cb;
-  border-top-right-radius: 2px;
-}
-
-.chatbox-footer {
-  padding: 8px;
-  border-top: 1px solid #e0e4f0;
-  background: #ffffff;
-  display: flex;
-  gap: 6px;
-}
-
-.chatbox-footer input {
-  flex: 1;
-  border-radius: 999px;
-  border: 1px solid #ccd1e4;
-  padding: 6px 10px;
-  font-size: 0.85rem;
-  outline: none;
-}
-
-.chatbox-footer button {
-  border-radius: 999px;
-  border: none;
-  background: #003366;
-  color: #fff;
-  padding: 6px 12px;
-  font-size: 0.8rem;
-  cursor: pointer;
-}
-
-/* Sugestões rápidas (FAQ) */
-.quick-questions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 4px;
-}
-
-.quick-question {
-  background: #e6ebff;
-  color: #003366;
-  border-radius: 999px;
-  padding: 4px 8px;
-  font-size: 0.75rem;
-  cursor: pointer;
-}
-<!-- CHATBOX MICHELE -->
-<div class="chatbox" id="chatbox-michele">
-  <div class="chatbox-header">
-    <div class="chatbox-header-info">
-      <div class="chatbox-avatar">M</div>
-      <div>
-        <div class="chatbox-header-title">Michele - Assistente da The Flow</div>
-        <div class="chatbox-header-subtitle">Tire suas dúvidas em tempo real</div>
-      </div>
-    </div>
-    <button class="chatbox-close" id="chatbox-close">&times;</button>
-  </div>
-  <div class="chatbox-body" id="chatbox-body">
-    <div class="chat-message michele">
-      Oi, eu sou a Michele 😊<br>
-      Posso te ajudar com planos, aulas experimentais, método e dúvidas sobre o inglês. O que você quer saber?
-      <div class="quick-questions">
-        <span class="quick-question">Quais são os planos?</span>
-        <span class="quick-question">Como funciona a aula experimental?</span>
-        <span class="quick-question">Sou iniciante, e agora?</span>
-        <span class="quick-question">Tenho pouco tempo para estudar</span>
-      </div>
-    </div>
-  </div>
-  <div class="chatbox-footer">
-    <input type="text" id="chatbox-input" placeholder="Digite sua pergunta...">
-    <button id="chatbox-send">Enviar</button>
-  </div>
-</div>
-
-<div class="chat-launcher" id="chat-launcher">
-  <!-- use um ícone de WhatsApp em PNG/SVG na pasta do site -->
-  <img src="whatsapp-icon.png" alt="Chat WhatsApp">
-</div>
-
-<script>
-  const launcher = document.getElementById('chat-launcher');
-  const chatbox = document.getElementById('chatbox-michele');
-  const closeBtn = document.getElementById('chatbox-close');
-  const bodyEl = document.getElementById('chatbox-body');
-  const inputEl = document.getElementById('chatbox-input');
-  const sendBtn = document.getElementById('chatbox-send');
-  const quickQuestions = document.querySelectorAll('.quick-question');
-
-  launcher.addEventListener('click', () => {
-    chatbox.style.display = 'flex';
-  });
-
-  closeBtn.addEventListener('click', () => {
-    chatbox.style.display = 'none';
-  });
-
-  function addMessage(text, from) {
-    const msg = document.createElement('div');
-    msg.classList.add('chat-message', from);
-    msg.innerHTML = text;
-    bodyEl.appendChild(msg);
-    bodyEl.scrollTop = bodyEl.scrollHeight;
-  }
-
-  function micheleReply(userText) {
-    const text = userText.toLowerCase();
-
-    // Mini "memória" com respostas frequentes
-    if (text.includes('plano') || text.includes('planos') || text.includes('preço') || text.includes('valor')) {
-      addMessage(
-        'Hoje a The Flow tem estes planos principais:<br>' +
-        '🎯 <strong>Flow Start</strong> – 1 aula por semana, até 5 pessoas.<br>' +
-        '🌟 <strong>Flow Plus</strong> – 2 aulas por semana em grupo reduzido.<br>' +
-        '✨ <strong>Flow Standard</strong> – aulas individuais 1x por semana.<br>' +
-        '💎 <strong>Flow VIP PREMIUM</strong> – 2 aulas individuais por semana.<br><br>' +
-        'Se quiser, posso te orientar qual se encaixa melhor no seu momento. 😊',
-        'michele'
-      );
-      return;
-    }
-
-    if (text.includes('experimental') || text.includes('teste') || text.includes('aula teste')) {
-      addMessage(
-        'A aula experimental é gratuita e sem compromisso. 💙<br>' +
-        'Nela, avaliamos seu nível, entendemos seus objetivos e você conhece o método na prática.<br>' +
-        'Se quiser, clique em <strong>WhatsApp</strong> no topo da página ou preencha o formulário de contato para agendar.',
-        'michele'
-      );
-      return;
-    }
-
-    if (text.includes('iniciante') || text.includes('começar do zero') || text.includes('zero')) {
-      addMessage(
-        'Se você é iniciante ou está recomeçando do zero, fica tranquilo(a). 🌱<br>' +
-        'A metodologia da The Flow foca em conversação guiada, vocabulário do dia a dia e construção de confiança passo a passo.',
-        'michele'
-      );
-      return;
-    }
-
-    if (text.includes('tempo') || text.includes('rotina') || text.includes('agenda')) {
-      addMessage(
-        'Muita gente sente que não tem tempo, e isso é super comum. ⏰<br>' +
-        'Com 1 hora por semana já dá para ver progresso, e nós montamos um plano que encaixa na sua rotina.',
-        'michele'
-      );
-      return;
-    }
-
-    if (text.includes('medo') || text.includes('vergonha') || text.includes('timidez') || text.includes('travar')) {
-      addMessage(
-        'A The Flow foi pensada justamente para quem sente vergonha ou trava na hora de falar. 🧡<br>' +
-        'O ambiente é seguro, leve e sem julgamento – erro faz parte do processo.',
-        'michele'
-      );
-      return;
-    }
-
-    // Resposta genérica
-    addMessage(
-      'Adorei sua pergunta! 😊<br>' +
-      'Sou a Michele e vou fazer o possível para te ajudar com tudo sobre a The Flow: planos, metodologia, aulas e dúvidas sobre o inglês.<br>' +
-      'Se for algo mais específico, você também pode falar direto com a equipe clicando no botão de WhatsApp ou usando o formulário de contato aqui na página.',
-      'michele'
-    );
-  }
-
-  function handleSend() {
-    const text = inputEl.value.trim();
-    if (!text) return;
-    addMessage(text, 'user');
-    inputEl.value = '';
-    setTimeout(() => micheleReply(text), 400);
-  }
-
-  sendBtn.addEventListener('click', handleSend);
-  inputEl.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      handleSend();
-    }
-  });
-
-  quickQuestions.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const text = btn.textContent;
-      addMessage(text, 'user');
-      setTimeout(() => micheleReply(text), 400);
-    });
-  });
-</script>
-
 <body>
   <header>
     <div class="container">
@@ -431,14 +284,11 @@
     </div>
   </section>
 
-  <!-- BIOGRAFIA THE FLOW -->
   <section class="bio-section" id="bio">
     <div class="container">
       <div class="bio-wrapper">
-       <div class="bio-photo">
-  <img src="fundadora.png" alt="Fundadora da The Flow English School">
-</div>
-
+        <div class="bio-photo">
+          <img src="fundadora.png" alt="Fundadora da The Flow English School">
         </div>
         <div class="bio-text">
           <h3>Como nasceu a The Flow</h3>
@@ -590,6 +440,150 @@
       © 2026 The Flow English School. Todos os direitos reservados. 🚀
     </div>
   </footer>
+
+  <!-- CHATBOX MICHELE -->
+  <div class="chatbox" id="chatbox-michele">
+    <div class="chatbox-header">
+      <div class="chatbox-header-info">
+        <div class="chatbox-avatar">M</div>
+        <div>
+          <div class="chatbox-header-title">Michele - Assistente da The Flow</div>
+          <div class="chatbox-header-subtitle">Tire suas dúvidas em tempo real</div>
+        </div>
+      </div>
+      <button class="chatbox-close" id="chatbox-close">&times;</button>
+    </div>
+    <div class="chatbox-body" id="chatbox-body">
+      <div class="chat-message michele">
+        Oi, eu sou a Michele 😊<br>
+        Posso te ajudar com planos, aulas experimentais, método e dúvidas sobre o inglês. O que você quer saber?
+        <div class="quick-questions">
+          <span class="quick-question">Quais são os planos?</span>
+          <span class="quick-question">Como funciona a aula experimental?</span>
+          <span class="quick-question">Sou iniciante, e agora?</span>
+          <span class="quick-question">Tenho pouco tempo para estudar</span>
+        </div>
+      </div>
+    </div>
+    <div class="chatbox-footer">
+      <input type="text" id="chatbox-input" placeholder="Digite sua pergunta...">
+      <button id="chatbox-send">Enviar</button>
+    </div>
+  </div>
+
+  <div class="chat-launcher" id="chat-launcher">
+    <img src="whatsapp-icon.png" alt="Chat WhatsApp">
+  </div>
+
+  <script>
+    const launcher = document.getElementById('chat-launcher');
+    const chatbox = document.getElementById('chatbox-michele');
+    const closeBtn = document.getElementById('chatbox-close');
+    const bodyEl = document.getElementById('chatbox-body');
+    const inputEl = document.getElementById('chatbox-input');
+    const sendBtn = document.getElementById('chatbox-send');
+    const quickQuestions = document.querySelectorAll('.quick-question');
+
+    launcher.addEventListener('click', () => {
+      chatbox.style.display = 'flex';
+    });
+
+    closeBtn.addEventListener('click', () => {
+      chatbox.style.display = 'none';
+    });
+
+    function addMessage(text, from) {
+      const msg = document.createElement('div');
+      msg.classList.add('chat-message', from);
+      msg.innerHTML = text;
+      bodyEl.appendChild(msg);
+      bodyEl.scrollTop = bodyEl.scrollHeight;
+    }
+
+    function micheleReply(userText) {
+      const text = userText.toLowerCase();
+
+      if (text.includes('plano') || text.includes('planos') || text.includes('preço') || text.includes('valor')) {
+        addMessage(
+          'Hoje a The Flow tem estes planos principais:<br>' +
+          '🎯 <strong>Flow Start</strong> – 1 aula por semana, até 5 pessoas.<br>' +
+          '🌟 <strong>Flow Plus</strong> – 2 aulas por semana em grupo reduzido.<br>' +
+          '✨ <strong>Flow Standard</strong> – aulas individuais 1x por semana.<br>' +
+          '💎 <strong>Flow VIP PREMIUM</strong> – 2 aulas individuais por semana.<br><br>' +
+          'Se quiser, posso te orientar qual se encaixa melhor no seu momento. 😊',
+          'michele'
+        );
+        return;
+      }
+
+      if (text.includes('experimental') || text.includes('teste') || text.includes('aula teste')) {
+        addMessage(
+          'A aula experimental é gratuita e sem compromisso. 💙<br>' +
+          'Nela, avaliamos seu nível, entendemos seus objetivos e você conhece o método na prática.<br>' +
+          'Se quiser, clique em <strong>WhatsApp</strong> no topo da página ou preencha o formulário de contato para agendar.',
+          'michele'
+        );
+        return;
+      }
+
+      if (text.includes('iniciante') || text.includes('começar do zero') || text.includes('zero')) {
+        addMessage(
+          'Se você é iniciante ou está recomeçando do zero, fica tranquilo(a). 🌱<br>' +
+          'A metodologia da The Flow foca em conversação guiada, vocabulário do dia a dia e construção de confiança passo a passo.',
+          'michele'
+        );
+        return;
+      }
+
+      if (text.includes('tempo') || text.includes('rotina') || text.includes('agenda')) {
+        addMessage(
+          'Muita gente sente que não tem tempo, e isso é super comum. ⏰<br>' +
+          'Com 1 hora por semana já dá para ver progresso, e nós montamos um plano que encaixa na sua rotina.',
+          'michele'
+        );
+        return;
+      }
+
+      if (text.includes('medo') || text.includes('vergonha') || text.includes('timidez') || text.includes('travar')) {
+        addMessage(
+          'A The Flow foi pensada justamente para quem sente vergonha ou trava na hora de falar. 🧡<br>' +
+          'O ambiente é seguro, leve e sem julgamento – erro faz parte do processo.',
+          'michele'
+        );
+        return;
+      }
+
+      addMessage(
+        'Adorei sua pergunta! 😊<br>' +
+        'Sou a Michele e vou fazer o possível para te ajudar com tudo sobre a The Flow: planos, metodologia, aulas e dúvidas sobre o inglês.<br>' +
+        'Se for algo mais específico, você também pode falar direto com a equipe clicando no botão de WhatsApp ou usando o formulário de contato aqui na página.',
+        'michele'
+      );
+    }
+
+    function handleSend() {
+      const text = inputEl.value.trim();
+      if (!text) return;
+      addMessage(text, 'user');
+      inputEl.value = '';
+      setTimeout(() => micheleReply(text), 400);
+    }
+
+    sendBtn.addEventListener('click', handleSend);
+    inputEl.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        handleSend();
+      }
+    });
+
+    quickQuestions.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const text = btn.textContent;
+        addMessage(text, 'user');
+        setTimeout(() => micheleReply(text), 400);
+      });
+    });
+  </script>
 </body>
 </html>
-```
