@@ -415,7 +415,7 @@
   <section class="section contact" id="contato">
     <div class="container">
       <h2 class="section-title" style="color: white;">📞 Entre em Contato</h2>
-      <div class="contact-wrapper">
+    <div class="contact-wrapper">
         <div>
           <p style="margin-bottom:30px;font-size:1.1rem;line-height:1.8">
             Tire suas dúvidas, escolha seu plano ou agende uma conversa.
@@ -508,73 +508,51 @@
       bodyEl.scrollTop = bodyEl.scrollHeight;
     }
 
-    function micheleReply(userText) {
-      const text = userText.toLowerCase();
+    // ========= INTEGRAÇÃO COM N8N / DEEPSEEK =========
+    const N8N_WEBHOOK_URL = 'https://SEU-N8N.com/webhook/michele-deepseek'; // troque aqui
 
-      if (text.includes('plano') || text.includes('planos') || text.includes('preço') || text.includes('valor')) {
+    async function micheleReply(userText) {
+      const text = userText.trim();
+      if (!text) return;
+
+      // Mensagem intermediária opcional
+      addMessage('Estou pensando na melhor resposta pra você…', 'michele');
+
+      try {
+        const response = await fetch(N8N_WEBHOOK_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            question: text
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error('Erro ao chamar o assistente');
+        }
+
+        const data = await response.json();
+        const answer = data.answer || 'Tive um probleminha para responder agora, mas você pode me chamar no WhatsApp que eu te ajudo por lá.';
+
+        addMessage(answer, 'michele');
+      } catch (e) {
         addMessage(
-          'Hoje a The Flow tem estes planos principais:<br>' +
-          '🎯 <strong>Flow Start</strong> – 1 aula por semana, até 5 pessoas.<br>' +
-          '🌟 <strong>Flow Plus</strong> – 2 aulas por semana em grupo reduzido.<br>' +
-          '✨ <strong>Flow Standard</strong> – aulas individuais 1x por semana.<br>' +
-          '💎 <strong>Flow VIP PREMIUM</strong> – 2 aulas individuais por semana.<br><br>' +
-          'Se quiser, posso te orientar qual se encaixa melhor no seu momento. 😊',
+          'Ops, parece que a conexão com o meu cérebro de IA falhou agora. 😅<br>' +
+          'Tenta novamente em alguns instantes ou fala comigo direto no WhatsApp.',
           'michele'
         );
-        return;
       }
-
-      if (text.includes('experimental') || text.includes('teste') || text.includes('aula teste')) {
-        addMessage(
-          'A aula experimental é gratuita e sem compromisso. 💙<br>' +
-          'Nela, avaliamos seu nível, entendemos seus objetivos e você conhece o método na prática.<br>' +
-          'Se quiser, clique em <strong>WhatsApp</strong> no topo da página ou preencha o formulário de contato para agendar.',
-          'michele'
-        );
-        return;
-      }
-
-      if (text.includes('iniciante') || text.includes('começar do zero') || text.includes('zero')) {
-        addMessage(
-          'Se você é iniciante ou está recomeçando do zero, fica tranquilo(a). 🌱<br>' +
-          'A metodologia da The Flow foca em conversação guiada, vocabulário do dia a dia e construção de confiança passo a passo.',
-          'michele'
-        );
-        return;
-      }
-
-      if (text.includes('tempo') || text.includes('rotina') || text.includes('agenda')) {
-        addMessage(
-          'Muita gente sente que não tem tempo, e isso é super comum. ⏰<br>' +
-          'Com 1 hora por semana já dá para ver progresso, e nós montamos um plano que encaixa na sua rotina.',
-          'michele'
-        );
-        return;
-      }
-
-      if (text.includes('medo') || text.includes('vergonha') || text.includes('timidez') || text.includes('travar')) {
-        addMessage(
-          'A The Flow foi pensada justamente para quem sente vergonha ou trava na hora de falar. 🧡<br>' +
-          'O ambiente é seguro, leve e sem julgamento – erro faz parte do processo.',
-          'michele'
-        );
-        return;
-      }
-
-      addMessage(
-        'Adorei sua pergunta! 😊<br>' +
-        'Sou a Michele e vou fazer o possível para te ajudar com tudo sobre a The Flow: planos, metodologia, aulas e dúvidas sobre o inglês.<br>' +
-        'Se for algo mais específico, você também pode falar direto com a equipe clicando no botão de WhatsApp ou usando o formulário de contato aqui na página.',
-        'michele'
-      );
     }
+    // ========= FIM DA INTEGRAÇÃO =========
 
     function handleSend() {
       const text = inputEl.value.trim();
       if (!text) return;
       addMessage(text, 'user');
       inputEl.value = '';
-      setTimeout(() => micheleReply(text), 400);
+      setTimeout(() => micheleReply(text), 200);
     }
 
     sendBtn.addEventListener('click', handleSend);
@@ -589,7 +567,7 @@
       btn.addEventListener('click', () => {
         const text = btn.textContent;
         addMessage(text, 'user');
-        setTimeout(() => micheleReply(text), 400);
+        setTimeout(() => micheleReply(text), 200);
       });
     });
   </script>
