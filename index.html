@@ -503,59 +503,70 @@
     function addMessage(text, from) {
       const msg = document.createElement('div');
       msg.classList.add('chat-message', from);
-      msg.innerHTML = text;
+      msg.textContent = text;
       bodyEl.appendChild(msg);
       bodyEl.scrollTop = bodyEl.scrollHeight;
     }
 
-    // ========= INTEGRAÇÃO COM N8N / DEEPSEEK =========
-    const N8N_WEBHOOK_URL = 'https://SEU-N8N.com/webhook/michele-deepseek'; // troque aqui
+    // ========= FUNÇÃO PARA CONSULTAR A API DO N8N =========
+    async function perguntarMichele(pergunta) {
+      try {
+        const response = await fetch('https://tiagooliveirarj.app.n8n.cloud/webhook/michele-deepseek', {
+          method: 'POST',
+          headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({ question: pergunta })
+        });
+        
+        if (!response.ok) {
+          throw new Error(`Erro HTTP: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        return data.answer || 'Desculpe, não consegui encontrar uma resposta específica. Entre em contato pelo WhatsApp!';
+        
+      } catch (error) {
+        console.error('Erro ao consultar Michele:', error);
+        return 'Desculpe, estou com dificuldades técnicas agora. Entre em contato pelo WhatsApp: (24) 98128-4100';
+      }
+    }
 
+    // ========= FUNÇÃO PRINCIPAL PARA RESPOSTAS =========
     async function micheleReply(userText) {
       const text = userText.trim();
       if (!text) return;
 
-      // Mensagem intermediária opcional
+      // Mostra mensagem de pensando
       addMessage('Estou pensando na melhor resposta pra você…', 'michele');
-
-      try {
-        const response = await fetch(N8N_WEBHOOK_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            question: text
-          })
-        });
-
-        if (!response.ok) {
-          throw new Error('Erro ao chamar o assistente');
-        }
-
-        const data = await response.json();
-        const answer = data.answer || 'Tive um probleminha para responder agora, mas você pode me chamar no WhatsApp que eu te ajudo por lá.';
-
-        addMessage(answer, 'michele');
-      } catch (e) {
-        addMessage(
-          'Ops, parece que a conexão com o meu cérebro de IA falhou agora. 😅<br>' +
-          'Tenta novamente em alguns instantes ou fala comigo direto no WhatsApp.',
-          'michele'
-        );
-      }
+      
+      // Limpa a mensagem "pensando" e mostra a resposta real
+      setTimeout(async () => {
+        // Remove a mensagem "pensando"
+        bodyEl.removeChild(bodyEl.lastChild);
+        
+        // Obtém a resposta da API
+        const resposta = await perguntarMichele(text);
+        addMessage(resposta, 'michele');
+      }, 500);
     }
-    // ========= FIM DA INTEGRAÇÃO =========
 
+    // ========= FUNÇÃO PARA ENVIAR MENSAGENS =========
     function handleSend() {
       const text = inputEl.value.trim();
       if (!text) return;
+      
       addMessage(text, 'user');
       inputEl.value = '';
-      setTimeout(() => micheleReply(text), 200);
+      
+      // Processa a resposta
+      micheleReply(text);
     }
 
+    // ========= EVENT LISTENERS =========
     sendBtn.addEventListener('click', handleSend);
+    
     inputEl.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
         e.preventDefault();
@@ -567,7 +578,7 @@
       btn.addEventListener('click', () => {
         const text = btn.textContent;
         addMessage(text, 'user');
-        setTimeout(() => micheleReply(text), 200);
+        micheleReply(text);
       });
     });
   </script>
