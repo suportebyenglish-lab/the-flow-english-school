@@ -293,31 +293,27 @@
       color:#444;
     }
 
-    /* Carrossel de depoimentos */
+    /* Carrossel infinito (marquee) */
     #testimonial-carousel{
       overflow:hidden;
+      position:relative;
     }
-    #testimonial-track{
+    .testimonial-marquee{
       display:flex;
-      transition:transform 0.6s ease;
-    }
-    .testimonial-slide{
-      min-width:100%;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
       gap:30px;
+      width:max-content;
+      animation:testimonial-scroll 40s linear infinite;
     }
-    .testimonial-dot{
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      background:#ccc;
-      cursor:pointer;
-      transition:background 0.3s, transform 0.3s;
+    .testimonial-marquee:hover{
+      animation-play-state:paused;
     }
-    .testimonial-dot.active{
-      background:#003366;
-      transform:scale(1.2);
+    .testimonial{
+      min-width:320px;
+      max-width:360px;
+    }
+    @keyframes testimonial-scroll{
+      0%{transform:translateX(0);}
+      100%{transform:translateX(-50%);}
     }
   </style>
 </head>
@@ -474,89 +470,146 @@
     </div>
   </section>
 
-  <!-- CARROSSEL DE HISTÓRIAS REAIS -->
+  <!-- HISTÓRIAS REAIS EM LOOP INFINITO -->
   <section class="section" id="depoimentos">
     <div class="container">
       <h2 class="section-title">📣 Histórias Reais</h2>
 
       <div id="testimonial-carousel">
-        <div id="testimonial-track">
-          <!-- SLIDE 1 -->
-          <div class="testimonial-slide">
-            <div class="testimonial">
-              <div class="testimonial-header">
-                <img src="aluna-ana.jpg" alt="Foto da Ana" class="testimonial-avatar">
-                <div>
-                  <p class="testimonial-name">Ana, 29</p>
-                  <p class="testimonial-tag">Profissional de Marketing</p>
-                </div>
+        <div class="testimonial-marquee">
+          <!-- 6 depoimentos -->
+          <div class="testimonial">
+            <div class="testimonial-header">
+              <img src="aluna-ana.jpg" alt="Foto da Ana" class="testimonial-avatar">
+              <div>
+                <p class="testimonial-name">Ana, 29</p>
+                <p class="testimonial-tag">Profissional de Marketing</p>
               </div>
-              <blockquote>"Eu já tinha feito outros cursos, mas travava na hora de falar. Em 3 meses de conversação na The Flow conduzi minha primeira reunião inteira em inglês."</blockquote>
             </div>
-
-            <div class="testimonial">
-              <div class="testimonial-header">
-                <img src="aluno-joao.jpg" alt="Foto do João" class="testimonial-avatar">
-                <div>
-                  <p class="testimonial-name">João, 32</p>
-                  <p class="testimonial-tag">Engenheiro de Software</p>
-                </div>
-              </div>
-              <blockquote>"Sempre evitava participar das calls com o time de fora. Hoje eu entro, faço perguntas e consigo explicar minhas ideias em inglês sem ficar traduzindo na cabeça."</blockquote>
-            </div>
-
-            <div class="testimonial">
-              <div class="testimonial-header">
-                <img src="aluna-camila.jpg" alt="Foto da Camila" class="testimonial-avatar">
-                <div>
-                  <p class="testimonial-name">Camila, 24</p>
-                  <p class="testimonial-tag">Estudante Universitária</p>
-                </div>
-              </div>
-              <blockquote>"Viajei sozinha e consegui pedir comida, fazer amizade no hostel e resolver imprevistos toda em inglês. Foi a primeira vez que não travei fora da sala de aula."</blockquote>
-            </div>
+            <blockquote>"Eu já tinha feito outros cursos, mas travava na hora de falar. Em 3 meses de conversação na The Flow conduzi minha primeira reunião inteira em inglês."</blockquote>
           </div>
 
-          <!-- SLIDE 2 -->
-          <div class="testimonial-slide">
-            <div class="testimonial">
-              <div class="testimonial-header">
-                <img src="aluno-lucas.jpg" alt="Foto do Lucas" class="testimonial-avatar">
-                <div>
-                  <p class="testimonial-name">Lucas, 27</p>
-                  <p class="testimonial-tag">Analista de Sistemas</p>
-                </div>
+          <div class="testimonial">
+            <div class="testimonial-header">
+              <img src="aluno-joao.jpg" alt="Foto do João" class="testimonial-avatar">
+              <div>
+                <p class="testimonial-name">João, 32</p>
+                <p class="testimonial-tag">Engenheiro de Software</p>
               </div>
-              <blockquote>"Comecei dizendo só 'yes' e 'no' nas reuniões. Com as aulas focadas em conversação, hoje apresento relatórios para clientes internacionais sem pedir ajuda."</blockquote>
             </div>
-
-            <div class="testimonial">
-              <div class="testimonial-header">
-                <img src="aluna-mariana.jpg" alt="Foto da Mariana" class="testimonial-avatar">
-                <div>
-                  <p class="testimonial-name">Mariana, 35</p>
-                  <p class="testimonial-tag">Empresária</p>
-                </div>
-              </div>
-              <blockquote>"Eu dependia de tradutor para falar com fornecedores de fora. Agora consigo negociar prazos, preços e até resolver problemas diretamente em inglês."</blockquote>
-            </div>
-
-            <div class="testimonial">
-              <div class="testimonial-header">
-                <img src="aluno-rafael.jpg" alt="Foto do Rafael" class="testimonial-avatar">
-                <div>
-                  <p class="testimonial-name">Rafael, 19</p>
-                  <p class="testimonial-tag">Estudante</p>
-                </div>
-              </div>
-              <blockquote>"Sempre gostei de jogos e música em inglês, mas não entendia tudo. Depois de alguns meses na The Flow, comecei a conversar com amigos de outros países online."</blockquote>
-            </div>
+            <blockquote>"Sempre evitava participar das calls com o time de fora. Hoje eu entro, faço perguntas e consigo explicar minhas ideias em inglês sem ficar traduzindo na cabeça."</blockquote>
           </div>
-        </div>
 
-        <div id="testimonial-dots" style="display:flex;justify-content:center;gap:8px;margin-top:20px;">
-          <span class="testimonial-dot active" data-index="0"></span>
-          <span class="testimonial-dot" data-index="1"></span>
+          <div class="testimonial">
+            <div class="testimonial-header">
+              <img src="aluna-camila.jpg" alt="Foto da Camila" class="testimonial-avatar">
+              <div>
+                <p class="testimonial-name">Camila, 24</p>
+                <p class="testimonial-tag">Estudante Universitária</p>
+              </div>
+            </div>
+            <blockquote>"Viajei sozinha e consegui pedir comida, fazer amizade no hostel e resolver imprevistos toda em inglês. Foi a primeira vez que não travei fora da sala de aula."</blockquote>
+          </div>
+
+          <div class="testimonial">
+            <div class="testimonial-header">
+              <img src="aluno-lucas.jpg" alt="Foto do Lucas" class="testimonial-avatar">
+              <div>
+                <p class="testimonial-name">Lucas, 27</p>
+                <p class="testimonial-tag">Analista de Sistemas</p>
+              </div>
+            </div>
+            <blockquote>"Comecei dizendo só 'yes' e 'no' nas reuniões. Com as aulas focadas em conversação, hoje apresento relatórios para clientes internacionais sem pedir ajuda."</blockquote>
+          </div>
+
+          <div class="testimonial">
+            <div class="testimonial-header">
+              <img src="aluna-mariana.jpg" alt="Foto da Mariana" class="testimonial-avatar">
+              <div>
+                <p class="testimonial-name">Mariana, 35</p>
+                <p class="testimonial-tag">Empresária</p>
+              </div>
+            </div>
+            <blockquote>"Eu dependia de tradutor para falar com fornecedores de fora. Agora consigo negociar prazos, preços e até resolver problemas diretamente em inglês."</blockquote>
+          </div>
+
+          <div class="testimonial">
+            <div class="testimonial-header">
+              <img src="aluno-rafael.jpg" alt="Foto do Rafael" class="testimonial-avatar">
+              <div>
+                <p class="testimonial-name">Rafael, 19</p>
+                <p class="testimonial-tag">Estudante</p>
+              </div>
+            </div>
+            <blockquote>"Sempre gostei de jogos e música em inglês, mas não entendia tudo. Depois de alguns meses na The Flow, comecei a conversar com amigos de outros países online."</blockquote>
+          </div>
+
+          <!-- 6 depoimentos duplicados para loop suave -->
+          <div class="testimonial">
+            <div class="testimonial-header">
+              <img src="aluna-ana.jpg" alt="Foto da Ana" class="testimonial-avatar">
+              <div>
+                <p class="testimonial-name">Ana, 29</p>
+                <p class="testimonial-tag">Profissional de Marketing</p>
+              </div>
+            </div>
+            <blockquote>"Eu já tinha feito outros cursos, mas travava na hora de falar. Em 3 meses de conversação na The Flow conduzi minha primeira reunião inteira em inglês."</blockquote>
+          </div>
+
+          <div class="testimonial">
+            <div class="testimonial-header">
+              <img src="aluno-joao.jpg" alt="Foto do João" class="testimonial-avatar">
+              <div>
+                <p class="testimonial-name">João, 32</p>
+                <p class="testimonial-tag">Engenheiro de Software</p>
+              </div>
+            </div>
+            <blockquote>"Sempre evitava participar das calls com o time de fora. Hoje eu entro, faço perguntas e consigo explicar minhas ideias em inglês sem ficar traduzindo na cabeça."</blockquote>
+          </div>
+
+          <div class="testimonial">
+            <div class="testimonial-header">
+              <img src="aluna-camila.jpg" alt="Foto da Camila" class="testimonial-avatar">
+              <div>
+                <p class="testimonial-name">Camila, 24</p>
+                <p class="testimonial-tag">Estudante Universitária</p>
+              </div>
+            </div>
+            <blockquote>"Viajei sozinha e consegui pedir comida, fazer amizade no hostel e resolver imprevistos toda em inglês. Foi a primeira vez que não travei fora da sala de aula."</blockquote>
+          </div>
+
+          <div class="testimonial">
+            <div class="testimonial-header">
+              <img src="aluno-lucas.jpg" alt="Foto do Lucas" class="testimonial-avatar">
+              <div>
+                <p class="testimonial-name">Lucas, 27</p>
+                <p class="testimonial-tag">Analista de Sistemas</p>
+              </div>
+            </div>
+            <blockquote>"Comecei dizendo só 'yes' e 'no' nas reuniões. Com as aulas focadas em conversação, hoje apresento relatórios para clientes internacionais sem pedir ajuda."</blockquote>
+          </div>
+
+          <div class="testimonial">
+            <div class="testimonial-header">
+              <img src="aluna-mariana.jpg" alt="Foto da Mariana" class="testimonial-avatar">
+              <div>
+                <p class="testimonial-name">Mariana, 35</p>
+                <p class="testimonial-tag">Empresária</p>
+              </div>
+            </div>
+            <blockquote>"Eu dependia de tradutor para falar com fornecedores de fora. Agora consigo negociar prazos, preços e até resolver problemas diretamente em inglês."</blockquote>
+          </div>
+
+          <div class="testimonial">
+            <div class="testimonial-header">
+              <img src="aluno-rafael.jpg" alt="Foto do Rafael" class="testimonial-avatar">
+              <div>
+                <p class="testimonial-name">Rafael, 19</p>
+                <p class="testimonial-tag">Estudante</p>
+              </div>
+            </div>
+            <blockquote>"Sempre gostei de jogos e música em inglês, mas não entendia tudo. Depois de alguns meses na The Flow, comecei a conversar com amigos de outros países online."</blockquote>
+          </div>
         </div>
       </div>
     </div>
@@ -758,31 +811,6 @@
         micheleReply(text);
       });
     });
-
-    // CARROSSEL DE HISTÓRIAS REAIS (2 slides, auto-play)
-    const track = document.getElementById('testimonial-track');
-    const dots = document.querySelectorAll('.testimonial-dot');
-    let currentSlide = 0;
-    const totalSlides = 2; // 0 e 1
-
-    function updateCarousel(index){
-      currentSlide = index;
-      track.style.transform = `translateX(-${index * 100}%)`;
-      dots.forEach(dot => dot.classList.remove('active'));
-      dots[index].classList.add('active');
-    }
-
-    dots.forEach(dot => {
-      dot.addEventListener('click', () => {
-        const index = parseInt(dot.getAttribute('data-index'));
-        updateCarousel(index);
-      });
-    });
-
-    setInterval(() => {
-      const next = (currentSlide + 1) % totalSlides;
-      updateCarousel(next);
-    }, 8000);
   </script>
 </body>
 </html>
