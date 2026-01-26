@@ -46,11 +46,6 @@
     .faq-item summary{padding:20px;cursor:pointer;font-weight:600;color:#003366;background:#f8f9fa;transition:0.3s}
     .faq-item summary:hover{background:#003366;color:white}
     .faq-item p{padding:20px;color:#555}
-    .contact{background:linear-gradient(135deg,#003366 0%,#C60C30 100%);color:white;padding:80px 0;text-align:center}
-    .contact-wrapper{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;max-width:1000px;margin:0 auto}
-    .contact form{width:100%}
-    .form-group{margin:20px 0}
-    .form-group input,.form-group textarea{width:100%;padding:12px 15px;border:none;border-radius:8px;font-family:inherit;font-size:1rem}
     .footer{background:#1a1a1a;color:white;padding:30px 0;text-align:center}
     .bio-section{background:#07213d;color:white;padding:80px 0}
     .bio-wrapper{display:grid;grid-template-columns:320px 1fr;gap:40px;align-items:center}
@@ -429,7 +424,7 @@
     </div>
   </section>
 
-  <!-- NOVA SEÇÃO AULA EXPERIMENTAL -->
+  <!-- SEÇÃO AULA EXPERIMENTAL -->
   <section class="section" id="aula-experimental" style="padding:80px 0;background:#07213d;color:#fff;">
     <div class="container" style="max-width:1100px;">
       <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:50px;align-items:center;">
@@ -557,31 +552,59 @@
     </div>
   </section>
 
-  <section class="section contact" id="contato">
-    <div class="container">
-      <h2 class="section-title" style="color: white;">📞 Entre em Contato</h2>
-      <div class="contact-wrapper">
+  <!-- NOVO ENTRE EM CONTATO ELEGANTE -->
+  <section class="section" id="contato" style="padding:80px 0;background:linear-gradient(135deg,#003366 0%,#C60C30 100%);color:#fff;">
+    <div class="container" style="max-width:900px;">
+      <h2 class="section-title" style="color:#fff;margin-bottom:30px;">📞 Entre em Contato</h2>
+      <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:start;">
         <div>
-          <p style="margin-bottom:30px;font-size:1.1rem;line-height:1.8">
-            Tire suas dúvidas, escolha seu plano ou agende uma conversa.
+          <p style="margin-bottom:16px;font-size:1.05rem;line-height:1.8;">
+            Tire suas dúvidas, escolha seu plano ou agende uma conversa com nossa equipe.
+          </p>
+          <p style="margin-bottom:12px;">
+            Você pode falar com a gente por WhatsApp, Instagram ou preenchendo o formulário ao lado.
+          </p>
+          <p style="margin-bottom:8px;font-weight:600;">
+            Resposta em até 24 horas úteis.
           </p>
         </div>
-        <form action="https://formsubmit.co/suporte.byenglish@gmail.com" method="POST">
-          <input type="hidden" name="_captcha" value="false">
-          <div class="form-group">
-            <input type="text" name="nome" placeholder="Seu Nome" required>
-          </div>
-          <div class="form-group">
-            <input type="email" name="email" placeholder="Seu Email" required>
-          </div>
-          <div class="form-group">
-            <input type="tel" name="whatsapp" placeholder="WhatsApp" required>
-          </div>
-          <div class="form-group">
-            <textarea name="mensagem" placeholder="Sua Mensagem" rows="5" required></textarea>
-          </div>
-          <button type="submit" class="btn-primary">Enviar Mensagem</button>
-        </form>
+
+        <div style="background:#00132b;border-radius:18px;padding:22px 20px;border:1px solid rgba(255,255,255,0.2);box-shadow:0 10px 30px rgba(0,0,0,0.5);">
+          <form action="https://formsubmit.co/suporte.byenglish@gmail.com" method="POST" style="display:flex;flex-direction:column;gap:14px;">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="Contato Geral - Site The Flow">
+            <input type="hidden" name="origem" value="Seção Entre em Contato">
+
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <label for="ct-nome" style="font-size:0.9rem;">Nome *</label>
+              <input id="ct-nome" name="nome" required
+                     style="background:transparent;border:none;border-bottom:1px solid #ccd1e4;padding:6px 2px;color:#fff;outline:none;">
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <label for="ct-email" style="font-size:0.9rem;">Email *</label>
+              <input id="ct-email" type="email" name="email" required
+                     style="background:transparent;border:none;border-bottom:1px solid #ccd1e4;padding:6px 2px;color:#fff;outline:none;">
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <label for="ct-whatsapp" style="font-size:0.9rem;">WhatsApp *</label>
+              <input id="ct-whatsapp" type="tel" name="whatsapp" required
+                     style="background:transparent;border:none;border-bottom:1px solid #ccd1e4;padding:6px 2px;color:#fff;outline:none;">
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <label for="ct-mensagem" style="font-size:0.9rem;">Mensagem *</label>
+              <textarea id="ct-mensagem" name="mensagem" rows="4" required
+                        style="background:transparent;border:1px solid #ccd1e4;border-radius:10px;padding:8px 8px;color:#fff;outline:none;resize:vertical;"></textarea>
+            </div>
+
+            <button type="submit"
+                    style="margin-top:10px;background:#00ffd5;border:none;border-radius:999px;color:#003366;padding:10px 0;font-weight:700;cursor:pointer;transition:0.2s;">
+              Enviar mensagem
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   </section>
