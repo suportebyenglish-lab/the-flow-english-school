@@ -84,11 +84,14 @@
       justify-content: center;
       cursor: pointer;
       z-index: 2000;
+      overflow: hidden;      /* garante círculo perfeito */
     }
 
     .chat-launcher img {
-      width: 32px;
-      height: 32px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;     /* preenche sem distorcer */
+      border-radius: 50%;
     }
 
     .chatbox {
@@ -350,7 +353,7 @@
             <li>Suporte PLUS</li>
             <li>Coaching personalizado</li>
           </ul>
-          <a href="https://wa.me/5524981284100" class="btn-primary">Escolher Plano</a>
+          <a href="https://wa.me/5524984100" class="btn-primary">Escolher Plano</a>
         </div>
         <div class="pricing-card">
           <h3>💎 Flow VIP PREMIUM</h3>
@@ -415,7 +418,7 @@
   <section class="section contact" id="contato">
     <div class="container">
       <h2 class="section-title" style="color: white;">📞 Entre em Contato</h2>
-    <div class="contact-wrapper">
+      <div class="contact-wrapper">
         <div>
           <p style="margin-bottom:30px;font-size:1.1rem;line-height:1.8">
             Tire suas dúvidas, escolha seu plano ou agende uma conversa.
@@ -479,8 +482,9 @@
     </div>
   </div>
 
+  <!-- LAUNCHER COM FOTO EM CÍRCULO -->
   <div class="chat-launcher" id="chat-launcher">
-    <img src="whatsapp-icon.png" alt="Chat WhatsApp">
+    <img src="michele.jpg" alt="Michele - Assistente da The Flow">
   </div>
 
   <script>
@@ -508,7 +512,6 @@
       bodyEl.scrollTop = bodyEl.scrollHeight;
     }
 
-    // ========= FUNÇÃO PARA CONSULTAR A API DO N8N =========
     async function perguntarMichele(pergunta) {
       try {
         const response = await fetch('https://tiagooliveirarj.app.n8n.cloud/webhook/michele-deepseek', {
@@ -533,38 +536,28 @@
       }
     }
 
-    // ========= FUNÇÃO PRINCIPAL PARA RESPOSTAS =========
     async function micheleReply(userText) {
       const text = userText.trim();
       if (!text) return;
 
-      // Mostra mensagem de pensando
       addMessage('Estou pensando na melhor resposta pra você…', 'michele');
       
-      // Limpa a mensagem "pensando" e mostra a resposta real
       setTimeout(async () => {
-        // Remove a mensagem "pensando"
         bodyEl.removeChild(bodyEl.lastChild);
-        
-        // Obtém a resposta da API
         const resposta = await perguntarMichele(text);
         addMessage(resposta, 'michele');
       }, 500);
     }
 
-    // ========= FUNÇÃO PARA ENVIAR MENSAGENS =========
     function handleSend() {
       const text = inputEl.value.trim();
       if (!text) return;
       
       addMessage(text, 'user');
       inputEl.value = '';
-      
-      // Processa a resposta
       micheleReply(text);
     }
 
-    // ========= EVENT LISTENERS =========
     sendBtn.addEventListener('click', handleSend);
     
     inputEl.addEventListener('keydown', (e) => {
