@@ -30,7 +30,7 @@
     .container{max-width:1200px;margin:0 auto;padding:0 20px}
     .header-content{display:flex;justify-content:space-between;align-items:center}
     .logo{font-size:1.8rem;font-weight:bold;letter-spacing:2px;display:flex;align-items:center;gap:15px}
-    .logo img{height:45px;width:auto}
+    .logo img{height:80px;width:auto}
     nav{display:flex;gap:2rem}
     a{color:white;text-decoration:none;font-weight:500;transition:0.3s}
     a:hover{color:#ffd700}
@@ -292,6 +292,35 @@
       font-style:italic;
       color:#444;
     }
+
+    /* Carrossel de depoimentos */
+    #testimonial-carousel{
+      overflow:hidden;
+    }
+    #testimonial-track{
+      display:flex;
+      transition:transform 0.6s ease;
+    }
+    .testimonial{
+      min-width:33.333%;
+    }
+    @media(max-width:900px){
+      .testimonial{
+        min-width:100%;
+      }
+    }
+    .testimonial-dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:#ccc;
+      cursor:pointer;
+      transition:background 0.3s, transform 0.3s;
+    }
+    .testimonial-dot.active{
+      background:#003366;
+      transform:scale(1.2);
+    }
   </style>
 </head>
 <body>
@@ -447,41 +476,85 @@
     </div>
   </section>
 
+  <!-- CARROSSEL DE HISTÓRIAS REAIS -->
   <section class="section" id="depoimentos">
     <div class="container">
       <h2 class="section-title">📣 Histórias Reais</h2>
-      <div class="cards-grid">
-        <div class="testimonial">
-          <div class="testimonial-header">
-            <img src="aluna-ana.jpg" alt="Foto da Ana" class="testimonial-avatar">
-            <div>
-              <p class="testimonial-name">Ana, 29</p>
-              <p class="testimonial-tag">Profissional de Marketing</p>
+
+      <div id="testimonial-carousel" style="position:relative;">
+        <div class="cards-grid" id="testimonial-track">
+          <!-- Slide 1 -->
+          <div class="testimonial">
+            <div class="testimonial-header">
+              <img src="aluna-ana.jpg" alt="Foto da Ana" class="testimonial-avatar">
+              <div>
+                <p class="testimonial-name">Ana, 29</p>
+                <p class="testimonial-tag">Profissional de Marketing</p>
+              </div>
             </div>
+            <blockquote>"Eu já tinha feito outros cursos, mas travava na hora de falar. Em 3 meses de conversação na The Flow conduzi minha primeira reunião inteira em inglês."</blockquote>
           </div>
-          <blockquote>"Sou fluente e em 3 meses de conversação na The Flow tive minha primeira reunião inteira em inglês."</blockquote>
+
+          <div class="testimonial">
+            <div class="testimonial-header">
+              <img src="aluno-joao.jpg" alt="Foto do João" class="testimonial-avatar">
+              <div>
+                <p class="testimonial-name">João, 32</p>
+                <p class="testimonial-tag">Engenheiro de Software</p>
+              </div>
+            </div>
+            <blockquote>"Sempre evitava participar das calls com o time de fora. Hoje eu entro, faço perguntas e consigo explicar minhas ideias em inglês sem ficar traduzindo na cabeça."</blockquote>
+          </div>
+
+          <div class="testimonial">
+            <div class="testimonial-header">
+              <img src="aluna-camila.jpg" alt="Foto da Camila" class="testimonial-avatar">
+              <div>
+                <p class="testimonial-name">Camila, 24</p>
+                <p class="testimonial-tag">Estudante Universitária</p>
+              </div>
+            </div>
+            <blockquote>"Viajei sozinha e consegui pedir comida, fazer amizade no hostel e resolver imprevistos toda em inglês. Foi a primeira vez que não travei fora da sala de aula."</blockquote>
+          </div>
+
+          <!-- Slide 2 (novos depoimentos) -->
+          <div class="testimonial">
+            <div class="testimonial-header">
+              <img src="aluno-lucas.jpg" alt="Foto do Lucas" class="testimonial-avatar">
+              <div>
+                <p class="testimonial-name">Lucas, 27</p>
+                <p class="testimonial-tag">Analista de Sistemas</p>
+              </div>
+            </div>
+            <blockquote>"Comecei dizendo só 'yes' e 'no' nas reuniões. Com as aulas focadas em conversação, hoje apresento relatórios para clientes internacionais sem pedir ajuda."</blockquote>
+          </div>
+
+          <div class="testimonial">
+            <div class="testimonial-header">
+              <img src="aluna-mariana.jpg" alt="Foto da Mariana" class="testimonial-avatar">
+              <div>
+                <p class="testimonial-name">Mariana, 35</p>
+                <p class="testimonial-tag">Empresária</p>
+              </div>
+            </div>
+            <blockquote>"Eu dependia de tradutor para falar com fornecedores de fora. Agora consigo negociar prazos, preços e até resolver problemas diretamente em inglês."</blockquote>
+          </div>
+
+          <div class="testimonial">
+            <div class="testimonial-header">
+              <img src="aluno-rafael.jpg" alt="Foto do Rafael" class="testimonial-avatar">
+              <div>
+                <p class="testimonial-name">Rafael, 19</p>
+                <p class="testimonial-tag">Estudante</p>
+              </div>
+            </div>
+            <blockquote>"Sempre gostei de jogos e música em inglês, mas não entendia tudo. Depois de alguns meses na The Flow, comecei a conversar com amigos de outros países online."</blockquote>
+          </div>
         </div>
 
-        <div class="testimonial">
-          <div class="testimonial-header">
-            <img src="aluno-joao.jpg" alt="Foto do João" class="testimonial-avatar">
-            <div>
-              <p class="testimonial-name">João, 32</p>
-              <p class="testimonial-tag">Engenheiro de Software</p>
-            </div>
-          </div>
-          <blockquote>"Parei de ter vergonha do meu sotaque e hoje participo de conversas com confiança."</blockquote>
-        </div>
-
-        <div class="testimonial">
-          <div class="testimonial-header">
-            <img src="aluna-camila.jpg" alt="Foto da Camila" class="testimonial-avatar">
-            <div>
-              <p class="testimonial-name">Camila, 24</p>
-              <p class="testimonial-tag">Estudante Universitária</p>
-            </div>
-          </div>
-          <blockquote>"Viajei e consegui conversar com nativos sem travar."</blockquote>
+        <div id="testimonial-dots" style="display:flex;justify-content:center;gap:8px;margin-top:20px;">
+          <span class="testimonial-dot active" data-index="0"></span>
+          <span class="testimonial-dot" data-index="1"></span>
         </div>
       </div>
     </div>
@@ -593,6 +666,7 @@
       }
     });
 
+    // CHATBOX MICHELE
     const launcher = document.getElementById('chat-launcher');
     const chatbox = document.getElementById('chatbox-michele');
     const closeBtn = document.getElementById('chatbox-close');
@@ -682,6 +756,38 @@
         micheleReply(text);
       });
     });
+
+    // CARROSSEL DE HISTÓRIAS REAIS
+    const track = document.getElementById('testimonial-track');
+    const dots = document.querySelectorAll('.testimonial-dot');
+    let currentSlide = 0;
+    const totalSlides = 2; // 0 e 1
+
+    function updateCarousel(index){
+      currentSlide = index;
+      const isMobile = window.innerWidth <= 900;
+
+      if (isMobile){
+        track.style.transform = `translateX(-${index * 100}%)`;
+      } else {
+        track.style.transform = `translateX(-${index * 50}%)`;
+      }
+
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[index].classList.add('active');
+    }
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const index = parseInt(dot.getAttribute('data-index'));
+        updateCarousel(index);
+      });
+    });
+
+    setInterval(() => {
+      const next = (currentSlide + 1) % totalSlides;
+      updateCarousel(next);
+    }, 8000);
   </script>
 </body>
 </html>
