@@ -1,3 +1,6 @@
+Aqui está o seu `index.html` completo já com o botão do WhatsApp no mesmo modelo (miniatura redonda) dos ícones do Instagram e Facebook. Basta copiar tudo e colar no GitHub; depois envie os arquivos `icon-instagram.png`, `icon-facebook.png` e `icon-whatsapp.png` para a raiz do repositório.
+
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -294,6 +297,7 @@
         </nav>
 
         <div style="display:flex;align-items:center;gap:12px;">
+          <!-- Ícones sociais (miniaturas) -->
           <div class="social-links">
             <!-- INSTAGRAM -->
             <a class="social-btn"
@@ -301,15 +305,24 @@
                target="_blank" rel="noopener noreferrer">
               <img src="icon-instagram.png" alt="Instagram The Flow" class="social-img">
             </a>
+
             <!-- FACEBOOK -->
             <a class="social-btn"
                href="https://www.facebook.com/share/1C9kPFhxHB/"
                target="_blank" rel="noopener noreferrer">
               <img src="icon-facebook.png" alt="Facebook The Flow" class="social-img">
             </a>
+
+            <!-- WHATSAPP MINIATURA -->
+            <a class="social-btn"
+               href="https://wa.me/5524981284100"
+               target="_blank" rel="noopener noreferrer">
+              <img src="icon-whatsapp.png" alt="WhatsApp The Flow" class="social-img">
+            </a>
           </div>
 
-          <a href="https://wa.me/5524981284100" class="btn-primary">WhatsApp</a>
+          <!-- Botão de texto opcional -->
+          <a href="https://wa.me/5524981284100" class="btn-primary">Fale no WhatsApp</a>
         </div>
       </div>
     </div>
@@ -662,3 +675,4 @@
   </script>
 </body>
 </html>
+```
