@@ -41,7 +41,7 @@
     .features-list{text-align:left;margin:30px 0}
     .features-list li{list-style:none;padding:10px 0;display:flex}
     .features-list li::before{content:'✓';color:#003366;font-weight:bold;margin-right:10px}
-    .testimonial{background:#f8f9fa;border-left:4px solid #003366;padding:30px;border-radius:10px;margin:20px 0}
+    .testimonial{background:#f8f9fa;border-left:4px solid #003366;padding:20px;border-radius:10px;margin:20px 0}
     .faq-item{background:white;margin:15px 0;border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,0.1)}
     .faq-item summary{padding:20px;cursor:pointer;font-weight:600;color:#003366;background:#f8f9fa;transition:0.3s}
     .faq-item summary:hover{background:#003366;color:white}
@@ -232,6 +232,40 @@
       font-size: 0.75rem;
       cursor: pointer;
     }
+
+    /* TESTEMUNHOS COM MINIATURA */
+    .testimonial-header {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:10px;
+    }
+
+    .testimonial-avatar {
+      width:48px;
+      height:48px;
+      border-radius:50%;
+      object-fit:cover;
+      border:2px solid #003366;
+    }
+
+    .testimonial-name {
+      font-weight:600;
+      color:#003366;
+      margin:0;
+    }
+
+    .testimonial-tag {
+      font-size:0.85rem;
+      color:#666;
+      margin:2px 0 0 0;
+    }
+
+    .testimonial blockquote {
+      margin:5px 0 0 0;
+      font-style:italic;
+      color:#444;
+    }
   </style>
 </head>
 <body>
@@ -373,21 +407,42 @@
     </div>
   </section>
 
+  <!-- HISTÓRIAS REAIS COM MINIATURAS -->
   <section class="section" id="depoimentos">
     <div class="container">
       <h2 class="section-title">📣 Histórias Reais</h2>
       <div class="cards-grid">
         <div class="testimonial">
-          <blockquote>"sou fluente e em 3 meses de conversação na the flow tive minha primeira reunião inteira em inglês."</blockquote>
-          <p><strong>Ana, 29</strong></p>
+          <div class="testimonial-header">
+            <img src="aluna-ana.jpg" alt="Foto da Ana" class="testimonial-avatar">
+            <div>
+              <p class="testimonial-name">Ana, 29</p>
+              <p class="testimonial-tag">Profissional de Marketing</p>
+            </div>
+          </div>
+          <blockquote>"Sou fluente e em 3 meses de conversação na The Flow tive minha primeira reunião inteira em inglês."</blockquote>
         </div>
+
         <div class="testimonial">
+          <div class="testimonial-header">
+            <img src="aluno-joao.jpg" alt="Foto do João" class="testimonial-avatar">
+            <div>
+              <p class="testimonial-name">João, 32</p>
+              <p class="testimonial-tag">Engenheiro de Software</p>
+            </div>
+          </div>
           <blockquote>"Parei de ter vergonha do meu sotaque e hoje participo de conversas com confiança."</blockquote>
-          <p><strong>João, 32</strong></p>
         </div>
+
         <div class="testimonial">
+          <div class="testimonial-header">
+            <img src="aluna-camila.jpg" alt="Foto da Camila" class="testimonial-avatar">
+            <div>
+              <p class="testimonial-name">Camila, 24</p>
+              <p class="testimonial-tag">Estudante Universitária</p>
+            </div>
+          </div>
           <blockquote>"Viajei e consegui conversar com nativos sem travar."</blockquote>
-          <p><strong>Camila, 24</strong></p>
         </div>
       </div>
     </div>
