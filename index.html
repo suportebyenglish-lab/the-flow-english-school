@@ -84,13 +84,13 @@
       justify-content: center;
       cursor: pointer;
       z-index: 2000;
-      overflow: hidden;      /* garante círculo perfeito */
+      overflow: hidden;
     }
 
     .chat-launcher img {
       width: 100%;
       height: 100%;
-      object-fit: cover;     /* preenche sem distorcer */
+      object-fit: cover;
       border-radius: 50%;
     }
 
@@ -353,7 +353,7 @@
             <li>Suporte PLUS</li>
             <li>Coaching personalizado</li>
           </ul>
-          <a href="https://wa.me/5524984100" class="btn-primary">Escolher Plano</a>
+          <a href="https://wa.me/5524981284100" class="btn-primary">Escolher Plano</a>
         </div>
         <div class="pricing-card">
           <h3>💎 Flow VIP PREMIUM</h3>
@@ -466,12 +466,14 @@
     </div>
     <div class="chatbox-body" id="chatbox-body">
       <div class="chat-message michele">
-        Oi, eu sou a Michele 😊<br>
+        Oi, eu sou a Michele 😊
         Posso te ajudar com planos, aulas experimentais, método e dúvidas sobre o inglês. O que você quer saber?
         <div class="quick-questions">
+          <span class="quick-question">Como funciona o curso?</span>
+          <span class="quick-question">Qual é a metodologia?</span>
           <span class="quick-question">Quais são os planos?</span>
-          <span class="quick-question">Como funciona a aula experimental?</span>
-          <span class="quick-question">Sou iniciante, e agora?</span>
+          <span class="quick-question">Como é a aula experimental?</span>
+          <span class="quick-question">Quem são os professores?</span>
           <span class="quick-question">Tenho pouco tempo para estudar</span>
         </div>
       </div>
@@ -482,7 +484,7 @@
     </div>
   </div>
 
-  <!-- LAUNCHER COM FOTO EM CÍRCULO -->
+  <!-- BOTÃO FIXO DA MICHELE -->
   <div class="chat-launcher" id="chat-launcher">
     <img src="michele.jpg" alt="Michele - Assistente da The Flow">
   </div>
@@ -512,54 +514,57 @@
       bodyEl.scrollTop = bodyEl.scrollHeight;
     }
 
-    async function perguntarMichele(pergunta) {
-      try {
-        const response = await fetch('https://tiagooliveirarj.app.n8n.cloud/webhook/michele-deepseek', {
-          method: 'POST',
-          headers: { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({ question: pergunta })
-        });
-        
-        if (!response.ok) {
-          throw new Error(`Erro HTTP: ${response.status}`);
-        }
-        
-        const data = await response.json();
-        return data.answer || 'Desculpe, não consegui encontrar uma resposta específica. Entre em contato pelo WhatsApp!';
-        
-      } catch (error) {
-        console.error('Erro ao consultar Michele:', error);
-        return 'Desculpe, estou com dificuldades técnicas agora. Entre em contato pelo WhatsApp: (24) 98128-4100';
+    function getMicheleAnswer(text) {
+      const pergunta = text.toLowerCase();
+
+      if (pergunta.includes('como funciona o curso') || pergunta.includes('funciona o curso')) {
+        return 'Na The Flow você foca em conversação desde a primeira aula. As aulas são práticas, com situações reais do seu dia a dia, materiais guiados e acompanhamento próximo.';
       }
+
+      if (pergunta.includes('metodologia')) {
+        return 'A metodologia é voltada para conversação, com muita prática guiada, frases reais, repetição inteligente e foco em destravar sua comunicação, não só em regras gramaticais.';
+      }
+
+      if (pergunta.includes('plano') || pergunta.includes('planos') || pergunta.includes('preço') || pergunta.includes('valores')) {
+        return 'Temos planos em grupo e individuais, com diferentes cargas horárias. Me chama no WhatsApp que eu te envio os valores atualizados e as opções certinhas para o seu perfil.';
+      }
+
+      if (pergunta.includes('aula experimental')) {
+        return 'A aula experimental é gratuita e sem compromisso. Nela você conhece o método, eu avalio seu nível e juntos definimos o melhor caminho para o seu inglês.';
+      }
+
+      if (pergunta.includes('professor') || pergunta.includes('professora') || pergunta.includes('professores')) {
+        return 'As aulas são ministradas por professora brasileira com experiência internacional e foco em conversação. O objetivo é te deixar confiante para falar inglês na vida real.';
+      }
+
+      if (pergunta.includes('pouco tempo') || pergunta.includes('não tenho tempo') || pergunta.includes('tempo para estudar')) {
+        return 'O curso foi pensado para quem tem rotina corrida. A partir de 1h por semana já é possível ter progresso, com atividades simples para encaixar no seu dia a dia.';
+      }
+
+      if (pergunta.includes('iniciante') || pergunta.includes('zero') || pergunta.includes('começar do zero')) {
+        return 'Se você é iniciante, começamos do zero, com frases simples, vocabulário útil e muita prática em um ambiente seguro, sem julgamentos.';
+      }
+
+      return 'Posso te ajudar com planos, metodologia, aula experimental e dúvidas sobre os professores. Se preferir, clique no botão de WhatsApp para falar diretamente comigo.';
     }
 
-    async function micheleReply(userText) {
+    function micheleReply(userText) {
       const text = userText.trim();
       if (!text) return;
-
-      addMessage('Estou pensando na melhor resposta pra você…', 'michele');
-      
-      setTimeout(async () => {
-        bodyEl.removeChild(bodyEl.lastChild);
-        const resposta = await perguntarMichele(text);
-        addMessage(resposta, 'michele');
-      }, 500);
+      const resposta = getMicheleAnswer(text);
+      addMessage(resposta, 'michele');
     }
 
     function handleSend() {
       const text = inputEl.value.trim();
       if (!text) return;
-      
       addMessage(text, 'user');
       inputEl.value = '';
       micheleReply(text);
     }
 
     sendBtn.addEventListener('click', handleSend);
-    
+
     inputEl.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
         e.preventDefault();
