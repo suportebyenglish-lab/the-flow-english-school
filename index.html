@@ -416,18 +416,49 @@
           <p>Para Turmas até 5 pessoas</p>
          <div class="price">
  <div class="price">
-  <s>de R$197,00</s> por <span class="promo-price">R$97,00</span>/mês
+ <div class="price">
+  <div class="old-price">de <s>R$197,00</s></div>
+  <div class="promo-container">
+    <span class="promo-text">por</span>
+    <span class="promo-amount">R$97,00</span>
+    <span class="promo-period">/mês</span>
+  </div>
 </div>
 
 <style>
-  .promo-price {
-    font-size: 24px; /* Tamanho maior */
-    font-weight: bold;
-    color: #e74c3c; /* Vermelho para destaque */
+  .price {
+    font-family: Arial, sans-serif;
   }
   
-  .price {
-    font-size: 16px; /* Tamanho normal para o resto */
+  .old-price {
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .old-price s {
+    font-size: 16px;
+  }
+  
+  .promo-container {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+  
+  .promo-text {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .promo-amount {
+    font-size: 32px;
+    font-weight: 800;
+    color: #e74c3c;
+  }
+  
+  .promo-period {
+    font-size: 16px;
+    color: #666;
   }
 </style>
           <ul class="features-list">
