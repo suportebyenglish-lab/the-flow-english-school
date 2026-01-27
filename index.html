@@ -82,7 +82,7 @@
       nav{display:none}
       .pricing-card.featured{transform:scale(1)}
       .contact-wrapper{grid-template-columns:1fr}
-      .logo img{height:45px}
+      .logo img{height:60px}
       .logo span{font-size:1.4rem}
       .bio-wrapper{grid-template-columns:1fr}
     }
@@ -142,7 +142,7 @@
     }
     .chatbox{
       position:fixed;
-      bottom:75px;
+      bottom:90px;
       right:20px;
       width:320px;
       max-height:420px;
@@ -292,29 +292,6 @@
       font-style:italic;
       color:#444;
     }
-
-    /* Carrossel infinito (marquee) */
-    #testimonial-carousel{
-      overflow:hidden;
-      position:relative;
-    }
-    .testimonial-marquee{
-      display:flex;
-      gap:30px;
-      width:max-content;
-      animation:testimonial-scroll 40s linear infinite;
-    }
-    .testimonial-marquee:hover{
-      animation-play-state:paused;
-    }
-    .testimonial{
-      min-width:320px;
-      max-width:360px;
-    }
-    @keyframes testimonial-scroll{
-      0%{transform:translateX(0);}
-      100%{transform:translateX(-50%);}
-    }
   </style>
 </head>
 <body>
@@ -414,53 +391,8 @@
         <div class="pricing-card">
           <h3>🎯 Flow Start</h3>
           <p>Para Turmas até 5 pessoas</p>
-         <div class="price">
- <div class="price">
- <div class="price">
-  <div class="old-price">de <s>R$197,00</s></div>
-  <div class="promo-container">
-    <span class="promo-text">por</span>
-    <span class="promo-amount">R$97,00</span>
-    <span class="promo-period">/mês</span>
-  </div>
-</div>
-
-<style>
-  .price {
-    font-family: Arial, sans-serif;
-  }
-  
-  .old-price {
-    font-size: 14px;
-    color: #777;
-  }
-  
-  .old-price s {
-    font-size: 16px;
-  }
-  
-  .promo-container {
-    display: flex;
-    align-items: baseline;
-    gap: 4px;
-  }
-  
-  .promo-text {
-    font-size: 16px;
-    color: #333;
-  }
-  
-  .promo-amount {
-    font-size: 32px;
-    font-weight: 800;
-    color: #e74c3c;
-  }
-  
-  .promo-period {
-    font-size: 16px;
-    color: #666;
-  }
-</style>
+          <div class="price">R$ 100</div>
+          <p>/mês</p>
           <ul class="features-list">
             <li>1 aula por semana</li>
             <li>1 hora</li>
@@ -515,146 +447,41 @@
     </div>
   </section>
 
-  <!-- HISTÓRIAS REAIS EM LOOP INFINITO -->
   <section class="section" id="depoimentos">
     <div class="container">
       <h2 class="section-title">📣 Histórias Reais</h2>
-
-      <div id="testimonial-carousel">
-        <div class="testimonial-marquee">
-          <!-- 6 depoimentos -->
-          <div class="testimonial">
-            <div class="testimonial-header">
-              <img src="aluna-ana.jpg" alt="Foto da Ana" class="testimonial-avatar">
-              <div>
-                <p class="testimonial-name">Ana, 29</p>
-                <p class="testimonial-tag">Profissional de Marketing</p>
-              </div>
+      <div class="cards-grid">
+        <div class="testimonial">
+          <div class="testimonial-header">
+            <img src="aluna-ana.jpg" alt="Foto da Ana" class="testimonial-avatar">
+            <div>
+              <p class="testimonial-name">Ana, 29</p>
+              <p class="testimonial-tag">Profissional de Marketing</p>
             </div>
-            <blockquote>"Eu já tinha feito outros cursos, mas travava na hora de falar. Em 3 meses de conversação na The Flow conduzi minha primeira reunião inteira em inglês."</blockquote>
           </div>
+          <blockquote>"Sou fluente e em 3 meses de conversação na The Flow tive minha primeira reunião inteira em inglês."</blockquote>
+        </div>
 
-          <div class="testimonial">
-            <div class="testimonial-header">
-              <img src="aluno-joao.jpg" alt="Foto do João" class="testimonial-avatar">
-              <div>
-                <p class="testimonial-name">João, 32</p>
-                <p class="testimonial-tag">Engenheiro de Software</p>
-              </div>
+        <div class="testimonial">
+          <div class="testimonial-header">
+            <img src="aluno-joao.jpg" alt="Foto do João" class="testimonial-avatar">
+            <div>
+              <p class="testimonial-name">João, 32</p>
+              <p class="testimonial-tag">Engenheiro de Software</p>
             </div>
-            <blockquote>"Sempre evitava participar das calls com o time de fora. Hoje eu entro, faço perguntas e consigo explicar minhas ideias em inglês sem ficar traduzindo na cabeça."</blockquote>
           </div>
+          <blockquote>"Parei de ter vergonha do meu sotaque e hoje participo de conversas com confiança."</blockquote>
+        </div>
 
-          <div class="testimonial">
-            <div class="testimonial-header">
-              <img src="aluna-camila.jpg" alt="Foto da Camila" class="testimonial-avatar">
-              <div>
-                <p class="testimonial-name">Camila, 24</p>
-                <p class="testimonial-tag">Estudante Universitária</p>
-              </div>
+        <div class="testimonial">
+          <div class="testimonial-header">
+            <img src="aluna-camila.jpg" alt="Foto da Camila" class="testimonial-avatar">
+            <div>
+              <p class="testimonial-name">Camila, 24</p>
+              <p class="testimonial-tag">Estudante Universitária</p>
             </div>
-            <blockquote>"Viajei sozinha e consegui pedir comida, fazer amizade no hostel e resolver imprevistos toda em inglês. Foi a primeira vez que não travei fora da sala de aula."</blockquote>
           </div>
-
-          <div class="testimonial">
-            <div class="testimonial-header">
-              <img src="aluno-lucas.jpg" alt="Foto do Lucas" class="testimonial-avatar">
-              <div>
-                <p class="testimonial-name">Lucas, 27</p>
-                <p class="testimonial-tag">Analista de Sistemas</p>
-              </div>
-            </div>
-            <blockquote>"Comecei dizendo só 'yes' e 'no' nas reuniões. Com as aulas focadas em conversação, hoje apresento relatórios para clientes internacionais sem pedir ajuda."</blockquote>
-          </div>
-
-          <div class="testimonial">
-            <div class="testimonial-header">
-              <img src="aluna-mariana.jpg" alt="Foto da Mariana" class="testimonial-avatar">
-              <div>
-                <p class="testimonial-name">Mariana, 35</p>
-                <p class="testimonial-tag">Empresária</p>
-              </div>
-            </div>
-            <blockquote>"Eu dependia de tradutor para falar com fornecedores de fora. Agora consigo negociar prazos, preços e até resolver problemas diretamente em inglês."</blockquote>
-          </div>
-
-          <div class="testimonial">
-            <div class="testimonial-header">
-              <img src="aluno-rafael.jpg" alt="Foto do Rafael" class="testimonial-avatar">
-              <div>
-                <p class="testimonial-name">Rafael, 19</p>
-                <p class="testimonial-tag">Estudante</p>
-              </div>
-            </div>
-            <blockquote>"Sempre gostei de jogos e música em inglês, mas não entendia tudo. Depois de alguns meses na The Flow, comecei a conversar com amigos de outros países online."</blockquote>
-          </div>
-
-          <!-- 6 depoimentos duplicados para loop suave -->
-          <div class="testimonial">
-            <div class="testimonial-header">
-              <img src="aluna-ana.jpg" alt="Foto da Ana" class="testimonial-avatar">
-              <div>
-                <p class="testimonial-name">Ana, 29</p>
-                <p class="testimonial-tag">Profissional de Marketing</p>
-              </div>
-            </div>
-            <blockquote>"Eu já tinha feito outros cursos, mas travava na hora de falar. Em 3 meses de conversação na The Flow conduzi minha primeira reunião inteira em inglês."</blockquote>
-          </div>
-
-          <div class="testimonial">
-            <div class="testimonial-header">
-              <img src="aluno-joao.jpg" alt="Foto do João" class="testimonial-avatar">
-              <div>
-                <p class="testimonial-name">João, 32</p>
-                <p class="testimonial-tag">Engenheiro de Software</p>
-              </div>
-            </div>
-            <blockquote>"Sempre evitava participar das calls com o time de fora. Hoje eu entro, faço perguntas e consigo explicar minhas ideias em inglês sem ficar traduzindo na cabeça."</blockquote>
-          </div>
-
-          <div class="testimonial">
-            <div class="testimonial-header">
-              <img src="aluna-camila.jpg" alt="Foto da Camila" class="testimonial-avatar">
-              <div>
-                <p class="testimonial-name">Camila, 24</p>
-                <p class="testimonial-tag">Estudante Universitária</p>
-              </div>
-            </div>
-            <blockquote>"Viajei sozinha e consegui pedir comida, fazer amizade no hostel e resolver imprevistos toda em inglês. Foi a primeira vez que não travei fora da sala de aula."</blockquote>
-          </div>
-
-          <div class="testimonial">
-            <div class="testimonial-header">
-              <img src="aluno-lucas.jpg" alt="Foto do Lucas" class="testimonial-avatar">
-              <div>
-                <p class="testimonial-name">Lucas, 27</p>
-                <p class="testimonial-tag">Analista de Sistemas</p>
-              </div>
-            </div>
-            <blockquote>"Comecei dizendo só 'yes' e 'no' nas reuniões. Com as aulas focadas em conversação, hoje apresento relatórios para clientes internacionais sem pedir ajuda."</blockquote>
-          </div>
-
-          <div class="testimonial">
-            <div class="testimonial-header">
-              <img src="aluna-mariana.jpg" alt="Foto da Mariana" class="testimonial-avatar">
-              <div>
-                <p class="testimonial-name">Mariana, 35</p>
-                <p class="testimonial-tag">Empresária</p>
-              </div>
-            </div>
-            <blockquote>"Eu dependia de tradutor para falar com fornecedores de fora. Agora consigo negociar prazos, preços e até resolver problemas diretamente em inglês."</blockquote>
-          </div>
-
-          <div class="testimonial">
-            <div class="testimonial-header">
-              <img src="aluno-rafael.jpg" alt="Foto do Rafael" class="testimonial-avatar">
-              <div>
-                <p class="testimonial-name">Rafael, 19</p>
-                <p class="testimonial-tag">Estudante</p>
-              </div>
-            </div>
-            <blockquote>"Sempre gostei de jogos e música em inglês, mas não entendia tudo. Depois de alguns meses na The Flow, comecei a conversar com amigos de outros países online."</blockquote>
-          </div>
+          <blockquote>"Viajei e consegui conversar com nativos sem travar."</blockquote>
         </div>
       </div>
     </div>
@@ -676,8 +503,8 @@
         <p>Aqui o foco é conversação real desde a primeira aula, sem só decorar regras.</p>
       </details>
       <details class="faq-item">
-        <summary>Como funciona o nivelamento?</summary>
-        <p>Gratuito, sem compromisso: você conhece o método e avaliamos seu nível.</p>
+        <summary>Como funciona a aula experimental?</summary>
+        <p>Gratuita, sem compromisso: você conhece o método e avaliamos seu nível.</p>
       </details>
     </div>
   </section>
@@ -739,7 +566,7 @@
           <span class="quick-question">Como funciona o curso?</span>
           <span class="quick-question">Qual é a metodologia?</span>
           <span class="quick-question">Quais são os planos?</span>
-          <span class="quick-question">Agendar um nivelamento?</span>
+          <span class="quick-question">Agendar avaliação grátis?</span>
           <span class="quick-question">Quem são os professores?</span>
           <span class="quick-question">Tenho pouco tempo para estudar</span>
         </div>
@@ -752,7 +579,7 @@
   </div>
 
   <div class="chat-launcher" id="chat-launcher">
-    <img src="icon-baloon.png" alt="Michele - Assistente da The Flow">
+    <img src="michele.jpg" alt="Michele - Assistente da The Flow">
   </div>
 
   <script>
@@ -766,7 +593,6 @@
       }
     });
 
-    // CHATBOX MICHELE
     const launcher = document.getElementById('chat-launcher');
     const chatbox = document.getElementById('chatbox-michele');
     const closeBtn = document.getElementById('chatbox-close');
@@ -806,8 +632,8 @@
         return 'Temos planos em grupo e individuais, com diferentes cargas horárias. Me chama no WhatsApp que eu te envio os valores atualizados e as opções certinhas para o seu perfil.';
       }
 
-      if (pergunta.includes('agendar um nivelamento') || pergunta.includes('avaliação grátis')) {
-        return 'O nivelamento é gratuito. Nele você conversa com a professor(a), descobre seu nível e recebe uma orientação personalizada para o seu aprendizado.';
+      if (pergunta.includes('aula experimental') || pergunta.includes('avaliação grátis')) {
+        return 'A avaliação/aula experimental é gratuita. Nela você conversa com a professora, descobre seu nível e recebe uma sugestão de plano ideal para a sua rotina.';
       }
 
       if (pergunta.includes('professor') || pergunta.includes('professora') || pergunta.includes('professores')) {
@@ -859,3 +685,10 @@
   </script>
 </body>
 </html>
+
+
+aluno-lucas.jpg
+
+aluna-mariana.jpg
+
+aluno-rafael.jpg
