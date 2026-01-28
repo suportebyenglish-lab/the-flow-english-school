@@ -1,453 +1,343 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Flow English School - Fluência Real em Inglês</title>
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#f8f9fa;color:#333;line-height:1.6}
 
-    /* HEADER COM EFEITO TRANSLÚCIDO AO ROLAR */
-    header{
-      position:sticky;
-      top:0;
-      z-index:1000;
-      padding:1rem 0;
-      color:white;
-      background:linear-gradient(135deg,#003366 0%,#C60C30 100%);
-      box-shadow:0 4px 20px rgba(0,51,102,0.3);
-      transition:background-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+  <!-- SEO + Social -->
+  <meta name="description" content="Fale Inglês com confiança com The Flow: prática de conversação real desde a primeira aula e método fluido." />
+  <meta property="og:title" content="The Flow English School - Fluência Real em Inglês" />
+  <meta property="og:description" content="Converse em inglês de forma natural desde o início. Método prático e foco em confiança." />
+  <meta property="og:image" content="logo.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#003366" />
+
+  <style>
+    /* Reset básico */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+           background: #f8f9fa; color: #333; line-height: 1.6; }
+
+    /* --------------------------------------------------------------------- */
+    /* Header com translucidez ao rolar (comportamento acessível) */
+    /* --------------------------------------------------------------------- */
+    header {
+      position: sticky; top: 0; z-index: 1000;
+      padding: 1rem 0;
+      color: #fff;
+      background: linear-gradient(135deg, #003366 0%, #C60C30 100%);
+      box-shadow: 0 4px 20px rgba(0, 51, 102, 0.3);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
     }
     header.header-translucent{
-      background:rgba(0,22,51,0.65);
-      backdrop-filter:blur(12px);
-      -webkit-backdrop-filter:blur(12px);
-      box-shadow:0 6px 25px rgba(0,0,0,0.45);
+      background: rgba(0, 22, 51, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 6px 25px rgba(0,0,0,0.45);
     }
 
-    .container{max-width:1200px;margin:0 auto;padding:0 20px}
-    .header-content{display:flex;justify-content:space-between;align-items:center}
-    .logo{font-size:1.8rem;font-weight:bold;letter-spacing:2px;display:flex;align-items:center;gap:15px}
-    .logo img{height:45px;width:auto}
-    nav{display:flex;gap:2rem}
-    a{color:white;text-decoration:none;font-weight:500;transition:0.3s}
-    a:hover{color:#ffd700}
-    .btn-primary{background:linear-gradient(135deg,#003366 0%,#C60C30 100%);color:white;padding:0.8rem 1.5rem;border:none;border-radius:50px;font-weight:600;cursor:pointer;transition:0.3s;box-shadow:0 4px 15px rgba(0,51,102,0.4)}
-    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 25px rgba(0,51,102,0.6)}
-    .hero{background:linear-gradient(135deg,#003366 0%,#C60C30 100%);color:white;padding:100px 0;text-align:center;clip-path:polygon(0 0,100% 0,100% 85%,0 100%)}
-    .hero h1{font-size:3.5rem;margin-bottom:20px}
-    .hero p{font-size:1.3rem;margin-bottom:30px;opacity:0.9}
-    .hero-buttons{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
-    .btn-secondary{background:white;color:#003366;padding:0.9rem 2rem;border:none;border-radius:50px;font-weight:600;cursor:pointer;transition:0.3s}
-    .btn-secondary:hover{transform:translateY(-2px)}
-    .section{padding:80px 0}
-    .section-title{font-size:2.5rem;text-align:center;margin-bottom:50px;color:#333}
-    .cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;margin-top:50px}
-    .card{background:white;border-radius:15px;padding:30px;box-shadow:0 10px 30px rgba(0,0,0,0.1);transition:0.3s}
-    .card:hover{transform:translateY(-10px);box-shadow:0 20px 50px rgba(0,51,102,0.2)}
-    .card-icon{font-size:3rem;margin-bottom:15px}
-    .card h3{margin:15px 0;color:#003366}
-    .card p{color:#666;line-height:1.8}
-    .benefits{background:linear-gradient(135deg,#003366 0%,#C60C30 100%);color:white}
-    .benefits .section-title{color:white}
-    .pricing{background:#f0f2f5}
-    .pricing-card{background:white;border:2px solid #e0e0e0;border-radius:15px;padding:40px 30px;text-align:center;transition:0.3s}
-    .pricing-card.featured{border:3px solid #003366;transform:scale(1.05);box-shadow:0 20px 50px rgba(0,51,102,0.3);background:linear-gradient(135deg,#fff 0%,#f0f4ff 100%)}
-    .price{font-size:3rem;color:#003366;font-weight:bold;margin:20px 0}
-    .features-list{text-align:left;margin:30px 0}
-    .features-list li{list-style:none;padding:10px 0;display:flex}
-    .features-list li::before{content:'✓';color:#003366;font-weight:bold;margin-right:10px}
-    .testimonial{background:#f8f9fa;border-left:4px solid #003366;padding:20px;border-radius:10px;margin:20px 0}
-    .faq-item{background:white;margin:15px 0;border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,0.1)}
-    .faq-item summary{padding:20px;cursor:pointer;font-weight:600;color:#003366;background:#f8f9fa;transition:0.3s}
-    .faq-item summary:hover{background:#003366;color:white}
-    .faq-item p{padding:20px;color:#555}
-    .contact{background:linear-gradient(135deg,#003366 0%,#C60C30 100%);color:white;padding:80px 0;text-align:center}
-    .contact-wrapper{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;max-width:1000px;margin:0 auto}
-    .contact form{width:100%}
-    .form-group{margin:20px 0}
-    .form-group input,.form-group textarea{width:100%;padding:12px 15px;border:none;border-radius:8px;font-family:inherit;font-size:1rem}
-    .footer{background:#1a1a1a;color:white;padding:30px 0;text-align:center}
-    .bio-section{background:#07213d;color:white;padding:80px 0}
-    .bio-wrapper{display:grid;grid-template-columns:320px 1fr;gap:40px;align-items:center}
-    .bio-photo{border-radius:20px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.4)}
-    .bio-photo img{width:100%;display:block}
-    .bio-text h3{font-size:2rem;margin-bottom:20px}
-    .bio-text p{margin-bottom:15px;line-height:1.9;color:#f1f1f1}
+    .container{ max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-    @media(max-width:768px){
-      .hero h1{font-size:2rem}
-      nav{display:none}
-      .pricing-card.featured{transform:scale(1)}
-      .contact-wrapper{grid-template-columns:1fr}
-      .logo img{height:60px}
-      .logo span{font-size:1.4rem}
-      .bio-wrapper{grid-template-columns:1fr}
-    }
+    .header-content{ display: flex; justify-content: space-between; align-items: center; }
 
-    /* Redes sociais com miniaturas */
-    .social-links{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      margin-right:10px;
-    }
-    .social-btn{
-      width:36px;
-      height:36px;
-      border-radius:50%;
-      overflow:hidden;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:transparent;
-      border:2px solid rgba(255,255,255,0.7);
-      cursor:pointer;
-      transition:0.3s;
-    }
-    .social-btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 4px 12px rgba(0,0,0,0.3);
-    }
-    .social-img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
+    .logo{ font-size: 1.8rem; font-weight: 700; letter-spacing: 2px; display: flex; align-items: center; gap: 12px; }
+    .logo img{ height: 45px; width: auto; }
 
-    /* CHATBOX MICHELE */
+    nav{ display: flex; gap: 2rem; }
+
+    a{ color: #fff; text-decoration: none; font-weight: 600; }
+
+    a:hover{ color: #ffd700; }
+
+    .btn-primary{ background: linear-gradient(135deg, #003366 0%, #C60C30 100%);
+                  color: white; padding: 0.8rem 1.5rem; border: none; border-radius: 999px;
+                  font-weight: 700; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;
+                  box-shadow: 0 4px 15px rgba(0,51,102,0.4); text-align: center; display: inline-block; }
+    .btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 6px 25px rgba(0,51,102,0.6); }
+
+    .btn-secondary{ background: white; color: #003366; padding: 0.9rem 2rem;
+                    border: none; border-radius: 999px; font-weight: 700; cursor: pointer;
+                    transition: transform 0.3s ease; }
+    .btn-secondary:hover{ transform: translateY(-2px); }
+
+    .hero{ background: linear-gradient(135deg, #003366 0%, #C60C30 100%); color: white; text-align: center;
+           padding: 100px 0; clip-path: polygon(0 0,100% 0,100% 85%,0 100%); }
+    .hero h1{ font-size: 3.5rem; margin-bottom: 20px; }
+    .hero p{ font-size: 1.3rem; margin-bottom: 30px; opacity: 0.95; }
+    .hero-buttons{ display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+
+    .section{ padding: 80px 0; }
+    .section-title{ font-size: 2.5rem; text-align: center; margin-bottom: 50px; color: #333; }
+
+    .cards-grid{ display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
+
+    .card{ background: white; border-radius: 15px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+           transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .card:hover{ transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,51,102,0.2); }
+    .card-icon{ font-size: 2.5rem; }
+
+    .card h3{ margin: 15px 0; color: #003366; }
+
+    .card p{ color: #666; line-height: 1.8; }
+
+    .benefits{ background: linear-gradient(135deg, #003366 0%, #C60C30 100%); color: white; }
+
+    .pricing{ background: #f0f2f5; }
+
+    .pricing-card{ background: white; border: 2px solid #e0e0e0; border-radius: 15px; padding: 40px 30px; text-align: center; transition: 0.3s; }
+    .pricing-card.featured{ border: 3px solid #003366; transform: scale(1.05); box-shadow: 0 20px 50px rgba(0,51,102,0.3);
+                          background: linear-gradient(135deg, #fff 0%, #f0f4ff 100%); }
+
+    .price{ font-size: 3rem; color: #003366; font-weight: 700; margin: 20px 0; }
+
+    .features-list{ text-align: left; margin: 30px 0; padding: 0 20px; }
+    .features-list li{ list-style: none; padding: 10px 0; display: flex; }
+    .features-list li::before{ content: '✓'; color: #003366; font-weight: 700; margin-right: 10px; }
+
+    .testimonial{ background: #f8f9fa; border-left: 4px solid #003366; padding: 20px; border-radius: 6px; margin: 20px 0; }
+
+    details.faq-item{ border: 1px solid #eee; border-radius: 8px; padding: 0; margin: 10px 0; background: white; }
+    details.faq-item summary{ padding: 14px 18px; cursor: pointer; font-weight: 700; color: #003366; background: #f8f9fa; }
+    details.faq-item summary:hover{ background: #e6f0ff; color: #002e66; }
+    details.faq-item p{ padding: 14px 18px; color: #555; }
+
+    /* Contato */
+    .contact{ background: linear-gradient(135deg, #003366 0%, #C60C30 100%); color: white; padding: 80px 0; }
+    .contact-wrapper{ display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; max-width: 1000px; margin: 0 auto; }
+
+    .contact form{ width: 100%; }
+    .form-group{ margin: 16px 0; }
+    .form-group input, .form-group textarea{
+      width: 100%; padding: 12px 14px; border-radius: 8px; border: none;
+      font-family: inherit; font-size: 1rem;
+    }
+    .form-group textarea{ resize: vertical; }
+
+    .footer{ background: #1a1a1a; color: white; padding: 30px 0; text-align: center; }
+
+    /* Biografia / Sobre */
+    .bio-section{ background: #07213d; color: white; padding: 80px 0; }
+    .bio-wrapper{ display: grid; grid-template-columns: 320px 1fr; gap: 40px; align-items: center; }
+    .bio-photo{ border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+    .bio-photo img{ width: 100%; display: block; }
+
+    .bio-text h3{ font-size: 2rem; margin-bottom: 20px; }
+    .bio-text p{ margin-bottom: 15px; line-height: 1.9; color: #f1f1f1; }
+
+    /* Chat Michele */
     .chat-launcher{
-      position:fixed;
-      bottom:20px;
-      right:20px;
-      width:60px;
-      height:60px;
-      border-radius:50%;
-      background-color:#25D366;
-      box-shadow:0 4px 15px rgba(0,0,0,0.3);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      cursor:pointer;
-      z-index:2000;
-      overflow:hidden;
+      position: fixed; bottom: 20px; right: 20px;
+      width: 60px; height: 60px; border-radius: 50%;
+      background: #25D366; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; z-index: 2000; overflow: hidden;
     }
-    .chat-launcher img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      border-radius:50%;
-    }
+    .chat-launcher img{ width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
     .chatbox{
-      position:fixed;
-      bottom:90px;
-      right:20px;
-      width:320px;
-      max-height:420px;
-      background:#ffffff;
-      border-radius:16px;
-      box-shadow:0 8px 25px rgba(0,0,0,0.25);
-      display:none;
-      flex-direction:column;
-      overflow:hidden;
-      z-index:2000;
-      font-family:inherit;
+      position: fixed; bottom: 90px; right: 20px;
+      width: 320px; max-height: 420px; background: #fff;
+      border-radius: 16px; box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+      display: none; flex-direction: column; overflow: hidden; z-index: 2000;
+      font-family: inherit;
     }
-    .chatbox-header{
-      background:linear-gradient(135deg,#003366 0%,#C60C30 100%);
-      color:#fff;
-      padding:12px 16px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-    }
-    .chatbox-header-info{
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-    .chatbox-avatar{
-      width:60px;
-      height:60px;
-      border-radius:50%;
-      background:#25D366;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:700;
-      overflow:hidden;
-    }
-    .chatbox-avatar img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-    .chatbox-header-title{
-      font-size:0.95rem;
-      font-weight:600;
-    }
-    .chatbox-header-subtitle{
-      font-size:0.75rem;
-      opacity:0.9;
-    }
-    .chatbox-close{
-      background:transparent;
-      border:none;
-      color:#fff;
-      font-size:1.1rem;
-      cursor:pointer;
-    }
-    .chatbox-body{
-      padding:12px;
-      background:#f4f6fb;
-      display:flex;
-      flex-direction:column;
-      gap:8px;
-      overflow-y:auto;
-    }
-    .chat-message{
-      max-width:85%;
-      padding:8px 10px;
-      border-radius:10px;
-      font-size:0.85rem;
-      line-height:1.4;
-    }
-    .chat-message.michele{
-      align-self:flex-start;
-      background:#ffffff;
-      border-top-left-radius:2px;
-    }
-    .chat-message.user{
-      align-self:flex-end;
-      background:#daf8cb;
-      border-top-right-radius:2px;
-    }
-    .chatbox-footer{
-      padding:8px;
-      border-top:1px solid #e0e4f0;
-      background:#ffffff;
-      display:flex;
-      gap:6px;
-    }
-    .chatbox-footer input{
-      flex:1;
-      border-radius:999px;
-      border:1px solid #ccd1e4;
-      padding:6px 10px;
-      font-size:0.85rem;
-      outline:none;
-    }
-    .chatbox-footer button{
-      border-radius:999px;
-      border:none;
-      background:#003366;
-      color:#fff;
-      padding:6px 12px;
-      font-size:0.8rem;
-      cursor:pointer;
-    }
-    .quick-questions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:6px;
-      margin-top:4px;
-    }
-    .quick-question{
-      background:#e6ebff;
-      color:#003366;
-      border-radius:999px;
-      padding:4px 8px;
-      font-size:0.75rem;
-      cursor:pointer;
+    .chatbox-header{ background: linear-gradient(135deg, #003366 0%, #C60C30 100%);
+                     color: #fff; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; }
+    .chatbox-header-info{ display: flex; align-items: center; gap: 10px; }
+    .chatbox-avatar{ width: 60px; height: 60px; border-radius: 50%; background: #25D366;
+                     display: flex; align-items: center; justify-content: center; font-weight: 700; color: #fff; overflow: hidden; }
+    .chatbox-header-title{ font-size: 0.95rem; font-weight: 600; }
+    .chatbox-header-subtitle{ font-size: 0.75rem; opacity: 0.9; }
+    .chatbox-close{ background: transparent; border: none; color: #fff; font-size: 1.1rem; cursor: pointer; }
+
+    .chatbox-body{ padding: 12px; background: #f4f6fb; display: flex; flex-direction: column; gap: 8px; overflow-y: auto; }
+
+    .chat-message{ max-width: 85%; padding: 8px 10px; border-radius: 10px; font-size: 0.85rem; line-height: 1.4; }
+    .chat-message.michele{ align-self: flex-start; background: #ffffff; }
+    .chat-message.user{ align-self: flex-end; background: #daf8cb; }
+
+    .chatbox-footer{ padding: 8px; border-top: 1px solid #e0e4f0; background: #fff; display: flex; gap: 6px; }
+    .chatbox-footer input{ flex: 1; border-radius: 999px; border: 1px solid #ccd1e4; padding: 6px 12px; font-size: 0.85rem; outline: none; }
+    .chatbox-footer button{ border-radius: 999px; border: none; background: #003366; color: #fff; padding: 6px 12px; font-size: 0.8rem; cursor: pointer; }
+
+    .quick-questions{ display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+    .quick-question{ background: #e6ebff; color: #003366; border-radius: 999px; padding: 4px 8px; font-size: 0.75rem; cursor: pointer; }
+
+    /* Responsividade */
+    @media (max-width: 768px){
+      .hero h1{ font-size: 2rem; }
+      nav{ display: none; }
+      .pricing-card.featured{ transform: none; }
+      .contact-wrapper{ grid-template-columns: 1fr; }
+      .bio-wrapper{ grid-template-columns: 1fr; }
+      .logo img{ height: 60px; }
     }
 
-    /* Testemunhos com miniatura */
-    .testimonial-header{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin-bottom:10px;
-    }
-    .testimonial-avatar{
-      width:48px;
-      height:48px;
-      border-radius:50%;
-      object-fit:cover;
-      border:2px solid #003366;
-    }
-    .testimonial-name{
-      font-weight:600;
-      color:#003366;
-      margin:0;
-    }
-    .testimonial-tag{
-      font-size:0.85rem;
-      color:#666;
-      margin:2px 0 0 0;
-    }
-    .testimonial blockquote{
-      margin:5px 0 0 0;
-      font-style:italic;
-      color:#444;
-    }
+    /* Foco acessível */
+    :focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; border-radius: 4px; }
+
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <div class="header-content">
-        <div class="logo">
-          <img src="logo.png" alt="The Flow English School">
-          <span></span>
-        </div>
+  <!-- Header -->
+  <header aria-label="Cabeçalho principal">
+    <div class="container header-content">
+      <div class="logo" aria-label="The Flow English School">
+        <img src="logo.png" alt="Logo The Flow">
+        <span>The Flow</span>
+      </div>
 
-        <nav>
-          <a href="#home">Início</a>
-          <a href="#sobre">Sobre</a>
-          <a href="#planos">Planos</a>
-          <a href="#faq">FAQ</a>
-          <a href="#contato">Contato</a>
-        </nav>
+      <nav aria-label="Menu Principal">
+        <a href="#home">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#planos">Planos</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contato">Contato</a>
+      </nav>
 
-        <div style="display:flex;align-items:center;gap:12px;">
-          <div class="social-links">
-            <a class="social-btn" href="https://www.instagram.com/theflowenglishschool?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
-              <img src="icon-instagram.png" alt="Instagram The Flow" class="social-img">
-            </a>
-            <a class="social-btn" href="https://www.facebook.com/share/1C9kPFhxHB/" target="_blank" rel="noopener noreferrer">
-              <img src="icon-facebook.png" alt="Facebook The Flow" class="social-img">
-            </a>
-            <a class="social-btn" href="https://wa.me/5524981284100" target="_blank" rel="noopener noreferrer">
-              <img src="icon-whatsapp.png" alt="WhatsApp The Flow" class="social-img">
-            </a>
-          </div>
-        </div>
+      <div class="social-links" aria-label="Redes sociais" style="display:flex;align-items:center;gap:12px;">
+        <a class="social-btn" href="https://www.instagram.com/theflowenglishschool" target="_blank" rel="noopener noreferrer" aria-label="Instagram The Flow">
+          <img src="icon-instagram.png" alt="Instagram" class="social-img">
+        </a>
+        <a class="social-btn" href="https://www.facebook.com/share/1C9kPFhxHB/" target="_blank" rel="noopener noreferrer" aria-label="Facebook The Flow">
+          <img src="icon-facebook.png" alt="Facebook" class="social-img">
+        </a>
+        <a class="social-btn" href="https://wa.me/5524981284100" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp The Flow">
+          <img src="icon-whatsapp.png" alt="WhatsApp" class="social-img">
+        </a>
       </div>
     </div>
   </header>
 
-  <section class="hero" id="home">
+  <!-- Hero -->
+  <section class="hero" id="home" aria-label="Seção de apresentação">
     <div class="container">
       <h1>🚀 Fale Inglês com Confiança</h1>
       <p>Conversação real desde a primeira aula. Método fluido, natural e eficaz.</p>
       <div class="hero-buttons">
-        <a href="#contato" class="btn-primary">Agendar</a>
-        <a href="#planos" class="btn-secondary">Saiba Mais</a>
+        <a href="#contato" class="btn-primary" role="button">Agendar</a>
+        <a href="#planos" class="btn-secondary" role="button">Saiba Mais</a>
       </div>
     </div>
   </section>
 
-  <section class="section benefits" id="sobre">
+  <!-- Sobre / Por que escolher The Flow -->
+  <section class="section benefits" id="sobre" aria-label="Por que escolher The Flow?">
     <div class="container">
       <h2 class="section-title">✨ Por que escolher The Flow?</h2>
       <div class="cards-grid">
         <div class="card">
-          <div class="card-icon">🗣️</div>
+          <div class="card-icon" aria-hidden="true">🗣️</div>
           <h3>Conversação Real</h3>
-          <p>Você fala desde a aula 1. Nada de decoreba – apenas prática real com situações do seu dia a dia.</p>
+          <p>Você fala desde a aula 1. Nada de decoreba – prática real com situações do seu dia a dia.</p>
         </div>
         <div class="card">
-          <div class="card-icon">🚀</div>
+          <div class="card-icon" aria-hidden="true">🚀</div>
           <h3>Progressão Rápida</h3>
-          <p>Veja resultados em semanas, não em meses, com prática consistente e foco em conversação.</p>
+          <p>Resultados em semanas, não meses, com prática constante em conversação.</p>
         </div>
         <div class="card">
-          <div class="card-icon">🌍</div>
+          <div class="card-icon" aria-hidden="true">🌍</div>
           <h3>Inglês do Dia a Dia</h3>
-          <p>Expressões e vocabulário que você realmente usa em séries, trabalho, viagens e conversas reais.</p>
+          <p>Expressões que você realmente usa em séries, trabalho, viagens e conversas reais.</p>
         </div>
         <div class="card">
-          <div class="card-icon">💬</div>
+          <div class="card-icon" aria-hidden="true">💬</div>
           <h3>Fluência Prática</h3>
-          <p>Fale com segurança e naturalidade em diferentes contextos, sem travar.</p>
+          <p>Converse com segurança em diferentes contextos, sem travar.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="bio-section" id="bio">
-    <div class="container">
-      <div class="bio-wrapper">
-        <div class="bio-photo">
-          <img src="fundadora.png" alt="Fundadora da The Flow English School">
-        </div>
-        <div class="bio-text">
-          <h3>Como nasceu a The Flow</h3>
-          <p>A The Flow English School nasceu da jornada de uma brasileira que passou 10 anos morando nos Estados Unidos tendo o inglês como seu primeiro idioma, onde o inglês deixou de ser apenas uma matéria e se tornou parte da sua identidade.</p>
-          <p>No dia a dia, nas conversas, nos desafios e conexões, ela descobriu um inglês vivo, que comunica sentimentos, ideias e sonhos bem diferente do ensino engessado que via nas salas de aula tradicionais.</p>
-          <p>Ao voltar para o Brasil, começou a dar aulas e percebeu que o problema não era a capacidade dos alunos, mas o método: pessoas diferentes estavam sendo ensinadas como se fossem todas iguais.</p>
-          <p>Inconformada com isso, decidiu criar um espaço onde o erro é parte do processo, a prática vem antes da perfeição e a confiança é construída conversa após conversa. Assim nasceu a The Flow: uma escola em que o inglês flui de forma leve, real e natural, conectando histórias, propósitos e novas oportunidades.</p>
-        </div>
+  <!-- Biografia / Fundadora -->
+  <section class="bio-section" id="bio" aria-label="História da The Flow">
+    <div class="container bio-wrapper">
+      <div class="bio-photo">
+        <img src="fundadora.png" alt="Fundadora da The Flow English School" />
+      </div>
+      <div class="bio-text">
+        <h3>Como nasceu a The Flow</h3>
+        <p>A The Flow English School nasceu da jornada de uma brasileira que passou 10 anos morando nos Estados Unidos...</p>
+        <p>Ao voltar para o Brasil, percebeu que o problema não era a capacidade dos alunos, mas o método...</p>
+        <p>Inconformada, criou um espaço onde o erro é parte do processo, a prática vem antes da perfeição e a confiança é construída conversa após conversa.</p>
       </div>
     </div>
   </section>
 
-  <section class="section pricing" id="planos">
+  <!-- Planos -->
+  <section class="section pricing" id="planos" aria-label="Planos de ensino">
     <div class="container">
       <h2 class="section-title">💰 Escolha seu Plano</h2>
       <div class="cards-grid">
-        <div class="pricing-card">
+        <div class="pricing-card" aria-label="Plano Flow Start">
           <h3>Flow Start</h3>
           <p>Para Turmas até 5 pessoas</p>
           <div class="price">
-            <div style="text-decoration: line-through; color: #666; font-size: 0.55em;">de R$197</div>
-            <div style="color: #e74c3c; font-weight: bold; font-size: 1.0em;">R$97,00<span style="font-size: 0.3em; color: #666;">/mês</span></div>
+            <span style="text-decoration: line-through; color:#666; font-size:0.55em;">de R$197</span>
+            <div style="color:#e74c3c; font-weight:700; font-size:1.0em;">R$97,00<span style="font-size:0.3em; color:#666;">/mês</span></div>
           </div>
-          <ul class="features-list">
+          <ul class="features-list" aria-label="Conteúdo do plano Flow Start">
             <li>1 aula por semana</li>
             <li>1 hora</li>
             <li>Conversação prática</li>
             <li>Suporte básico</li>
           </ul>
-          <a href="https://wa.me/5524981284100" class="btn-primary">Escolher Plano</a>
+          <a href="https://wa.me/5524981284100" class="btn-primary" role="button" aria-label="Escolher Flow Start">Escolher Plano</a>
         </div>
-       <div class="pricing-card featured">
-  <h3>Flow Plus</h3>
-  <p>Para Turmas de até 5 pessoas</p>
-  <div class="price">
-    <div style="text-decoration: line-through; color: #666; font-size: 0.55em;">de R$367</div>
-    <div style="color: #e74c3c; font-weight: bold; font-size: 1.0em;">R$187,00<span style="font-size: 0.3em; color: #666;">/mês</span></div>
-  </div>
-  <ul class="features-list">
-    <li>2 aulas por semana</li>
-    <li>1 hora cada</li>
-    <li>Material incluso</li>
-    <li>Suporte rápido</li>
-    <li>Exercícios exclusivos</li>
-  </ul>
-  <a href="https://wa.me/5524981284100" class="btn-primary">Escolher Plano</a>
-</div>
-        <div class="pricing-card">
-  <h3>Flow VIP PREMIUM 💎 </h3>
-  <p>VIP Premium Individual</p>
-  <div class="price">
-    <div style="text-decoration: line-through; color: #666; font-size: 0.55em;">de R$600</div>
-    <div style="color: #e74c3c; font-weight: bold; font-size: 1.0em;">R$297,00<span style="font-size: 0.3em; color: #666;">/mês</span></div>
-  </div>
-  <ul class="features-list">
-    <li>2 Aulas individuais por semana</li>
-    <li>1 hora cada</li>
-    <li>Material premium</li>
-    <li>Suporte VIP</li>
-    <li>Coaching personalizado</li>
-  </ul>
-  <a href="https://wa.me/5524981284100" class="btn-primary">Escolher Plano</a>
-</div>
-</div>
-</div>
+
+        <div class="pricing-card featured" aria-label="Plano Flow Plus">
+          <h3>Flow Plus</h3>
+          <p>Para Turmas de até 5 pessoas</p>
+          <div class="price">
+            <span style="text-decoration: line-through; color:#666; font-size:0.55em;">de R$367</span>
+            <div style="color:#e74c3c; font-weight:700; font-size:1.0em;">R$187,00<span style="font-size:0.3em; color:#666;">/mês</span></div>
+          </div>
+          <ul class="features-list" aria-label="Conteúdo do plano Flow Plus">
+            <li>2 aulas por semana</li>
+            <li>1 hora cada</li>
+            <li>Material incluso</li>
+            <li>Suporte rápido</li>
+            <li>Exercícios exclusivos</li>
+          </ul>
+          <a href="https://wa.me/5524981284100" class="btn-primary" role="button" aria-label="Escolher Flow Plus">Escolher Plano</a>
+        </div>
+
+        <div class="pricing-card" aria-label="Plano Flow VIP PREMIUM">
+          <h3>Flow VIP PREMIUM 💎 </h3>
+          <p>VIP Premium Individual</p>
+          <div class="price">
+            <span style="text-decoration: line-through; color:#666; font-size:0.55em;">de R$600</span>
+            <div style="color:#e74c3c; font-weight:700; font-size:1.0em;">R$297,00<span style="font-size:0.3em; color:#666;">/mês</span></div>
+          </div>
+          <ul class="features-list" aria-label="Conteúdo do plano Flow VIP Premium">
+            <li>2 Aulas individuais por semana</li>
+            <li>1 hora cada</li>
+            <li>Material premium</li>
+            <li>Suporte VIP</li>
+            <li>Coaching personalizado</li>
+          </ul>
+          <a href="https://wa.me/5524981284100" class="btn-primary" role="button" aria-label="Escolher Flow VIP Premium">Escolher Plano</a>
+        </div>
+      </div>
+    </div>
   </section>
-  <section class="section" id="depoimentos">
+
+  <!-- Depoimentos -->
+  <section class="section" id="depoimentos" aria-label="Histórias reais">
     <div class="container">
       <h2 class="section-title">📣 Histórias Reais</h2>
       <div class="cards-grid">
         <div class="testimonial">
           <div class="testimonial-header">
-            <img src="aluna-ana.jpg" alt="Foto da Ana" class="testimonial-avatar">
+            <img src="aluna-ana.jpg" alt="Ana, alumna" class="testimonial-avatar" style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid #003366;">
             <div>
-              <p class="testimonial-name">Ana, 29</p>
-              <p class="testimonial-tag">Profissional de Marketing</p>
+              <p class="testimonial-name" style="margin:0;">Ana, 29</p>
+              <p class="testimonial-tag" style="margin:2px 0 0 0;">Profissional de Marketing</p>
             </div>
           </div>
           <blockquote>"Sou fluente e em 3 meses de conversação na The Flow tive minha primeira reunião inteira em inglês."</blockquote>
@@ -455,10 +345,10 @@
 
         <div class="testimonial">
           <div class="testimonial-header">
-            <img src="aluno-joao.jpg" alt="Foto do João" class="testimonial-avatar">
+            <img src="aluno-joao.jpg" alt="João, aluno" class="testimonial-avatar" style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid #003366;">
             <div>
-              <p class="testimonial-name">João, 32</p>
-              <p class="testimonial-tag">Engenheiro de Software</p>
+              <p class="testimonial-name" style="margin:0;">João, 32</p>
+              <p class="testimonial-tag" style="margin:2px 0 0 0;">Engenheiro de Software</p>
             </div>
           </div>
           <blockquote>"Parei de ter vergonha do meu sotaque e hoje participo de conversas com confiança."</blockquote>
@@ -466,10 +356,10 @@
 
         <div class="testimonial">
           <div class="testimonial-header">
-            <img src="aluna-camila.jpg" alt="Foto da Camila" class="testimonial-avatar">
+            <img src="aluna-mariana.jpg" alt="Mariana, aluna" class="testimonial-avatar" style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid #003366;">
             <div>
-              <p class="testimonial-name">Camila, 24</p>
-              <p class="testimonial-tag">Estudante Universitária</p>
+              <p class="testimonial-name" style="margin:0;">Mariana, 24</p>
+              <p class="testimonial-tag" style="margin:2px 0 0 0;">Estudante Universitária</p>
             </div>
           </div>
           <blockquote>"Viajei e consegui conversar com nativos sem travar."</blockquote>
@@ -478,21 +368,26 @@
     </div>
   </section>
 
-  <section class="section" id="faq">
+  <!-- FAQ -->
+  <section class="section" id="faq" aria-label="Perguntas Frequentes">
     <div class="container">
       <h2 class="section-title">Perguntas Frequentes ❓</h2>
+
       <details class="faq-item">
         <summary>Não tenho tempo, consigo acompanhar?</summary>
         <p>Sim, as aulas são pensadas para sua rotina, com progresso visível a partir de 1h por semana.</p>
       </details>
+
       <details class="faq-item">
         <summary>Sou tímido, tenho medo de falar. E agora?</summary>
         <p>Ambiente seguro, sem julgamento, para você ganhar confiança gradualmente.</p>
       </details>
+
       <details class="faq-item">
         <summary>Já fiz outros cursos e não funcionou?</summary>
         <p>Aqui o foco é conversação real desde a primeira aula, sem só decorar regras.</p>
       </details>
+
       <details class="faq-item">
         <summary>Como funciona a aula experimental?</summary>
         <p>Gratuita, sem compromisso: você conhece o método e avaliamos seu nível.</p>
@@ -500,60 +395,67 @@
     </div>
   </section>
 
-  <section class="section contact" id="contato">
+  <!-- Contato -->
+  <section class="section contact" id="contato" aria-label="Entre em Contato">
     <div class="container">
       <h2 class="section-title" style="color: white;">📞 Entre em Contato</h2>
       <div class="contact-wrapper">
         <div>
-          <p style="margin-bottom:30px;font-size:1.1rem;line-height:1.8">
+          <p style="margin-bottom:30px;font-size:1.1rem;line-height:1.8;">
             Tire suas dúvidas, escolha seu plano ou agende uma conversa.
           </p>
         </div>
-        <form action="https://formsubmit.co/suporte.byenglish@gmail.com" method="POST">
-          <input type="hidden" name="_captcha" value="false">
+
+        <!-- Formulário (cliente) -->
+        <form action="https://formsubmit.co/suporte.byenglish@gmail.com" method="POST" novalidate>
+          <input type="hidden" name="_captcha" value="false" />
           <div class="form-group">
-            <input type="text" name="nome" placeholder="Seu Nome" required>
+            <label for="nome" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Seu Nome</label>
+            <input id="nome" type="text" name="nome" placeholder="Seu Nome" required />
           </div>
           <div class="form-group">
-            <input type="email" name="email" placeholder="Seu Email" required>
+            <label for="email" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Seu Email</label>
+            <input id="email" type="email" name="email" placeholder="Seu Email" required />
           </div>
           <div class="form-group">
-            <input type="tel" name="whatsapp" placeholder="WhatsApp" required>
+            <label for="whatsapp" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">WhatsApp</label>
+            <input id="whatsapp" type="tel" name="whatsapp" placeholder="WhatsApp" required />
           </div>
           <div class="form-group">
-            <textarea name="mensagem" placeholder="Sua Mensagem" rows="5" required></textarea>
+            <label for="mensagem" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Sua Mensagem</label>
+            <textarea id="mensagem" name="mensagem" placeholder="Sua Mensagem" rows="5" required></textarea>
           </div>
-          <button type="submit" class="btn-primary">Enviar Mensagem</button>
+          <button type="submit" class="btn-primary" aria-label="Enviar mensagem">Enviar Mensagem</button>
         </form>
       </div>
     </div>
   </section>
 
-  <footer class="footer">
+  <footer class="footer" aria-label="Rodapé">
     <div class="container">
       © 2026 The Flow English School. Todos os direitos reservados. 🚀
     </div>
   </footer>
 
-  <!-- CHATBOX MICHELE -->
-  <div class="chatbox" id="chatbox-michele">
+  <!-- Chat Michele -->
+  <div class="chatbox" id="chatbox-michele" aria-label="Chat com Michele">
     <div class="chatbox-header">
       <div class="chatbox-header-info">
-        <div class="chatbox-avatar">
-          <img src="michele.jpg" alt="Michele - Assistente da The Flow">
+        <div class="chatbox-avatar" aria-label="Avatar Michele">
+          <img src="michele.jpg" alt="Michele - Assistente The Flow" style="width:100%; height:100%; object-fit:cover;" />
         </div>
         <div>
           <div class="chatbox-header-title">Michele - Assistente da The Flow</div>
           <div class="chatbox-header-subtitle">Tire suas dúvidas em tempo real</div>
         </div>
       </div>
-      <button class="chatbox-close" id="chatbox-close">&times;</button>
+      <button class="chatbox-close" id="chatbox-close" aria-label="Fechar chat">&times;</button>
     </div>
-    <div class="chatbox-body" id="chatbox-body">
+
+    <div class="chatbox-body" id="chatbox-body" role="log" aria-live="polite">
       <div class="chat-message michele">
-        Oi, eu sou a Michele 😊
-        Posso te ajudar com planos, aulas experimentais, método e dúvidas sobre o inglês. O que você quer saber?
-        <div class="quick-questions">
+        Oi, eu sou a Michele 😊 Pode me perguntar sobre planos, aulas experimentais, método e dúvidas sobre o inglês.
+        <div class="quick-questions" aria-label="Perguntas rápidas">
           <span class="quick-question">Como funciona o curso?</span>
           <span class="quick-question">Qual é a metodologia?</span>
           <span class="quick-question">Quais são os planos?</span>
@@ -563,27 +465,22 @@
         </div>
       </div>
     </div>
+
     <div class="chatbox-footer">
-      <input type="text" id="chatbox-input" placeholder="Digite sua pergunta...">
-      <button id="chatbox-send">Enviar</button>
+      <input type="text" id="chatbox-input" placeholder="Digite sua pergunta..." aria-label="Digite sua pergunta" />
+      <button id="chatbox-send" aria-label="Enviar mensagem">Enviar</button>
     </div>
   </div>
 
-  <div class="chat-launcher" id="chat-launcher">
-    <img src="michele.jpg" alt="Michele - Assistente da The Flow">
+  <div class="chat-launcher" id="chat-launcher" aria-label=" Abrir chat com Michele ">
+    <img src="michele.jpg" alt="Michele" />
   </div>
 
   <script>
-    // HEADER TRANSLÚCIDO AO ROLAR
+    // -----------------------------
+    // Helpers & State
+    // -----------------------------
     const siteHeader = document.querySelector('header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 40) {
-        siteHeader.classList.add('header-translucent');
-      } else {
-        siteHeader.classList.remove('header-translucent');
-      }
-    });
-
     const launcher = document.getElementById('chat-launcher');
     const chatbox = document.getElementById('chatbox-michele');
     const closeBtn = document.getElementById('chatbox-close');
@@ -592,61 +489,57 @@
     const sendBtn = document.getElementById('chatbox-send');
     const quickQuestions = document.querySelectorAll('.quick-question');
 
-    launcher.addEventListener('click', () => {
-      chatbox.style.display = 'flex';
+    // 1) Translucidez do header ao rolar
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) siteHeader.classList.add('header-translucent');
+      else siteHeader.classList.remove('header-translucent');
     });
 
-    closeBtn.addEventListener('click', () => {
-      chatbox.style.display = 'none';
-    });
+    // 2) Abrir/Fechar chat Michele
+    launcher.addEventListener('click', () => { chatbox.style.display = 'flex'; });
+    closeBtn.addEventListener('click', () => { chatbox.style.display = 'none'; });
 
+    // 3) Mensagens no chat (sem renderizar HTML do usuário)
     function addMessage(text, from) {
       const msg = document.createElement('div');
       msg.classList.add('chat-message', from);
-      msg.textContent = text;
+      msg.textContent = text; // evita injection
       bodyEl.appendChild(msg);
       bodyEl.scrollTop = bodyEl.scrollHeight;
     }
 
+    // 4) Respostas da Michele (baseadas em palavras-chave)
     function getMicheleAnswer(text) {
       const pergunta = text.toLowerCase();
 
       if (pergunta.includes('como funciona o curso') || pergunta.includes('funciona o curso')) {
-        return 'Na The Flow você foca em conversação desde a primeira aula. As aulas são práticas, com situações reais do seu dia a dia, materiais guiados e acompanhamento próximo.';
+        return 'Na The Flow você foca em conversação desde a primeira aula. As aulas são práticas, com situações reais do dia a dia e acompanhamento próximo.';
       }
-
       if (pergunta.includes('metodologia')) {
-        return 'A metodologia é voltada para conversação, com muita prática guiada, frases reais, repetição inteligente e foco em destravar sua comunicação, não só em regras gramaticais.';
+        return 'A metodologia é voltada para conversação, com prática guiada, frases reais, repetição inteligente e foco em destravar a comunicação.';
       }
-
       if (pergunta.includes('plano') || pergunta.includes('planos') || pergunta.includes('preço') || pergunta.includes('valores')) {
-        return 'Temos planos em grupo e individuais, com diferentes cargas horárias. Me chama no WhatsApp que eu te envio os valores atualizados e as opções certinhas para o seu perfil.';
+        return 'Temos planos em grupo e individuais; me chama no WhatsApp que eu envio valores atualizados para o seu perfil.';
       }
-
       if (pergunta.includes('aula experimental') || pergunta.includes('avaliação grátis')) {
-        return 'A avaliação/aula experimental é gratuita. Nela você conversa com a professora, descobre seu nível e recebe uma sugestão de plano ideal para a sua rotina.';
+        return 'A avaliação/aula experimental é gratuita. Nela você conversa com a professora, descobre seu nível e recebe uma sugestão de plano.';
       }
-
       if (pergunta.includes('professor') || pergunta.includes('professora') || pergunta.includes('professores')) {
-        return 'As aulas são ministradas por professora brasileira com experiência internacional e foco em conversação. O objetivo é te deixar confiante para falar inglês na vida real.';
+        return 'As aulas são ministradas por professora brasileira com experiência internacional, com foco em conversação.';
       }
-
       if (pergunta.includes('pouco tempo') || pergunta.includes('não tenho tempo') || pergunta.includes('tempo para estudar')) {
-        return 'O curso foi pensado para quem tem rotina corrida. A partir de 1h por semana já é possível ter progresso, com atividades simples para encaixar no seu dia a dia.';
+        return 'O curso foi pensado para rotina corrida. A partir de 1h por semana já é possível ter progresso.';
       }
-
       if (pergunta.includes('iniciante') || pergunta.includes('zero') || pergunta.includes('começar do zero')) {
-        return 'Se você é iniciante, começamos do zero, com frases simples, vocabulário útil e muita prática em um ambiente seguro, sem julgamentos.';
+        return 'Se você é iniciante, começamos do zero com frases simples, vocabulário útil e muita prática em um ambiente seguro.';
       }
-
       return 'Posso te ajudar com planos, metodologia, aula experimental e dúvidas sobre os professores. Se preferir, clique no botão de WhatsApp para falar diretamente comigo.';
     }
 
     function micheleReply(userText) {
       const text = userText.trim();
       if (!text) return;
-      const resposta = getMicheleAnswer(text);
-      addMessage(resposta, 'michele');
+      addMessage(getMicheleAnswer(text), 'michele');
     }
 
     function handleSend() {
@@ -658,13 +551,7 @@
     }
 
     sendBtn.addEventListener('click', handleSend);
-
-    inputEl.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        handleSend();
-      }
-    });
+    inputEl.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); handleSend(); } });
 
     quickQuestions.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -673,13 +560,8 @@
         micheleReply(text);
       });
     });
+
+    // 5) Opcional: inicializar um contador de mensagens para acessibilidade (opcional)
   </script>
 </body>
 </html>
-
-
-aluno-lucas.jpg
-
-aluna-mariana.jpg
-
-aluno-rafael.jpg
